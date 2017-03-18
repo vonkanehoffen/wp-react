@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { loadPosts } from 'containers/App/actions';
+import Post from 'components/Post';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -25,7 +26,10 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>
-        <pre>{JSON.stringify(this.props.posts, null, 2)}</pre>
+        {this.props.posts.map((post, i) => {
+          console.log(post);
+          return <Post post={post} key={i} />;
+        })}
       </div>
     );
   }
@@ -42,7 +46,7 @@ export function mapDispatchToProps(dispatch) {
 // });
 const mapStateToProps = (state) => {
   return {
-    posts: state.get('global')
+    posts: state.getIn(['global', 'posts'])
   }
 }
 

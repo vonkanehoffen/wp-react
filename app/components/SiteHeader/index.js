@@ -14,7 +14,6 @@ function SiteHeader() {
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/posts">Posts</Link></li>
       </ul>
     </div>
   );
