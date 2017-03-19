@@ -12,7 +12,6 @@
 
 import { fromJS } from 'immutable';
 
-// NO?
 import {
   LOAD_POSTS,
   LOAD_POSTS_SUCCESS,

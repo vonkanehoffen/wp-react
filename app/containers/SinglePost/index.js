@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Post from 'components/Post';
 import { find } from 'lodash';
-import { loadPosts } from 'containers/App/actions';
+import { loadPosts } from '../../store/posts/actions';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
 

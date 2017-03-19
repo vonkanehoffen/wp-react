@@ -6,10 +6,10 @@ import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_POSTS } from './constants';
 import { postsLoaded, postLoadingError } from './actions';
-import { makeSelectFetchArgs } from './postSelectors';
+import { makeSelectFetchArgs } from './selectors';
 
 // Import paths: https://intellij-support.jetbrains.com/hc/en-us/community/posts/207656825-Custom-import-paths-with-es6
-import request from 'utils/request';
+import request from '../../utils/request';
 // import { makeSelectUsername } from 'containers/HomePage/selectors';
 
 /**

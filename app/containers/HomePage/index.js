@@ -13,7 +13,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import { loadPosts } from 'containers/App/actions';
+import { loadPosts } from '../../store/posts/actions';
 import Post from 'components/Post';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
