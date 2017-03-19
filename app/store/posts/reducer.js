@@ -26,7 +26,7 @@ const initialState = fromJS({
   fetchArgs: {},
 });
 
-function appReducer(state = initialState, action) {
+function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
       return state
@@ -47,4 +47,4 @@ function appReducer(state = initialState, action) {
   }
 }
 
-export default appReducer;
+export default postsReducer;

@@ -7,7 +7,7 @@ import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-import globalReducer from 'store/posts/reducer';
+import postsReducer from 'store/posts/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 /*
@@ -44,7 +44,7 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
-    global: globalReducer, // TODO: Change this to posts. Separate one for comments
+    posts: postsReducer,
     language: languageProviderReducer,
     ...asyncReducers,
   });

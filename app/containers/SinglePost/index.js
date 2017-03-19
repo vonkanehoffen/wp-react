@@ -44,7 +44,7 @@ SinglePost.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.getIn(['global', 'posts'])
+    posts: state.getIn(['posts', 'posts'])
   }
 }
 

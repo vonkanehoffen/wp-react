@@ -4,7 +4,7 @@
 
 import { createSelector } from 'reselect';
 
-const selectPosts = (state) => state.get('global');
+const selectPosts = (state) => state.get('posts');
 
 const makeSelectFetchArgs = () => createSelector(
   selectPosts,
