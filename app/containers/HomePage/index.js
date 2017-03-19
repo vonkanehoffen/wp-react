@@ -27,7 +27,6 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
           <FormattedMessage {...messages.header} />
         </h1>
         {this.props.posts.map((post, i) => {
-          console.log(post);
           return <Post post={post} key={i} />;
         })}
       </div>

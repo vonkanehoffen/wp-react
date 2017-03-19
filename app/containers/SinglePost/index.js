@@ -7,9 +7,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
+import Post from 'components/Post';
+import { find } from 'lodash';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const { posts, params } = this.props;
+    const post = find(posts, { 'slug': params.slug });
+
     return (
       <div>
         <Helmet
@@ -18,7 +23,8 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
             { name: 'description', content: 'Description of SinglePost' },
           ]}
         />
-        <h1>SinglePost: {this.props.params.slug}</h1>
+        <h1>SinglePost: {params.slug}</h1>
+        {post.hasOwnProperty('id') ? <Post post={post}/> : <div>No post</div>}
       </div>
     );
   }
@@ -28,6 +34,11 @@ SinglePost.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = (state) => {
+  return {
+    posts: state.getIn(['global', 'posts'])
+  }
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -35,4 +46,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(SinglePost);
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
