@@ -28,6 +28,14 @@ function checkStatus(response) {
   throw error;
 }
 
+function buildQueryParams(params) {
+  const esc = encodeURIComponent;
+  const query = Object.keys(params)
+    .map(k => esc(k) + '=' + esc(params[k]))
+    .join('&');
+  return '?' + query;
+}
+
 /**
  * Requests a URL, returning a promise
  *
@@ -36,8 +44,8 @@ function checkStatus(response) {
  *
  * @return {object}           The response data
  */
-export default function request(url, options) {
-  return fetch(url, options)
+export default function request(url, args, options) {
+  return fetch(url+buildQueryParams(args), options)
     .then(checkStatus)
     .then(parseJSON);
 }

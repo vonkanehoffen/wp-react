@@ -44,7 +44,7 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
-    global: globalReducer,
+    global: globalReducer, // TODO: Change this to posts. Separate one for comments
     language: languageProviderReducer,
     ...asyncReducers,
   });

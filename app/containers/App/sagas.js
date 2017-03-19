@@ -6,6 +6,7 @@ import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_POSTS } from './constants';
 import { postsLoaded, postLoadingError } from './actions';
+import { makeSelectFetchArgs } from './postSelectors';
 
 // Import paths: https://intellij-support.jetbrains.com/hc/en-us/community/posts/207656825-Custom-import-paths-with-es6
 import request from 'utils/request';
@@ -15,13 +16,13 @@ import request from 'utils/request';
  * Github repos request/response handler
  */
 export function* getPosts() {
-  // Select username from store
-  // const username = yield select(makeSelectUsername());
+  // Select args from store
+  const args = yield select(makeSelectFetchArgs());
   const requestURL = `http://kanec.co.uk/wp-json/wp/v2/posts`;
 
   try {
     // Call our request helper (see 'utils/request')
-    const posts = yield call(request, requestURL);
+    const posts = yield call(request, requestURL, args);
     yield put(postsLoaded(posts));
   } catch (err) {
     yield put(postLoadingError(err));

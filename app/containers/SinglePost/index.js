@@ -9,8 +9,16 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Post from 'components/Post';
 import { find } from 'lodash';
+import { loadPosts } from 'containers/App/actions';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+  componentDidMount() {
+    const { posts, params, dispatch } = this.props;
+    if(!find(posts, { 'slug': params.slug })) {
+      dispatch(loadPosts({slug: params.slug}));
+    }
+  }
   render() {
     const { posts, params } = this.props;
     const post = find(posts, { 'slug': params.slug });
@@ -24,7 +32,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
           ]}
         />
         <h1>SinglePost: {params.slug}</h1>
-        {post.hasOwnProperty('id') ? <Post post={post}/> : <div>No post</div>}
+        {post ? <Post post={post}/> : <div>No post</div>}
       </div>
     );
   }

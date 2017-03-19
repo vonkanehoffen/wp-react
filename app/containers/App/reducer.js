@@ -24,16 +24,18 @@ const initialState = fromJS({
   loading: false,
   error: false,
   posts: [],
-  comments: [],
+  fetchArgs: {},
 });
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
       return state
+        .set('fetchArgs', action.args)
         .set('loading', true)
         .set('error', false)
     case LOAD_POSTS_SUCCESS:
+      // TODO: make this merge posts in by IDs (not overwriting originals)
       return state
         .set('loading', false)
         .set('posts', action.posts);
