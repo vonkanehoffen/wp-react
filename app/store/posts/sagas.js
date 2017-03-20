@@ -39,8 +39,8 @@ export function* postsData() {
   const watcher = yield takeLatest(LOAD_POSTS, getPosts);
 
   // Suspend execution until location changes
-  yield take(LOCATION_CHANGE);
-  yield cancel(watcher);
+  // yield take(LOCATION_CHANGE);
+  // yield cancel(watcher);
 }
 
 // Bootstrap sagas

@@ -45,7 +45,9 @@ function buildQueryParams(params) {
  * @return {object}           The response data
  */
 export default function request(url, args, options) {
-  return fetch(url+buildQueryParams(args), options)
+  url += buildQueryParams(args);
+  console.log(url);
+  return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON);
 }
