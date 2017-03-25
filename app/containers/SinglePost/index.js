@@ -15,13 +15,13 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
 
   componentDidMount() {
     const { posts, params, dispatch } = this.props;
-    if(!posts.find(post => post.get('slug') === params.slug)) {
+    if(!posts.find(post => post.slug === params.slug)) {
       dispatch(loadPosts({slug: params.slug}));
     }
   }
   render() {
     const { posts, params } = this.props;
-    const post = posts.find(post => post.get('slug') === params.slug);
+    const post = posts.find(post => post.slug === params.slug);
 
     return (
       <div>

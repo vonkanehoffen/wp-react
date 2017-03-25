@@ -10,7 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import { fromJS } from 'immutable';
+import { fromJS, OrderedMap, Map } from 'immutable';
 
 import {
   LOAD_POSTS,
@@ -40,7 +40,16 @@ function postsReducer(state = initialState, action) {
       });
       return state
         .set('loading', false)
-        .set('posts', state.get('posts').merge(posts));
+        .set('posts', state.get('posts')
+          .merge(OrderedMap(posts))
+          .sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            if (dateA > dateB) { return -1; }
+            if (dateA < dateB) { return 1; }
+            if (dateA === dateB) { return 0; }
+          })
+        );
     case LOAD_POSTS_ERROR:
       return state
         .set('error', action.error)

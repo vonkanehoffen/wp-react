@@ -21,14 +21,16 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
     this.props.onLoadPosts()
   }
   render() {
+    const { posts, onLoadMore } = this.props;
     return (
       <div>
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>
-        {this.props.posts.valueSeq().map((post, i) => {
+        {posts.valueSeq().map((post, i) => {
           return <Post post={post} key={i} />;
         })}
+        <button onClick={onLoadMore}>Load More</button>
       </div>
     );
   }
@@ -37,6 +39,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 export function mapDispatchToProps(dispatch) {
   return {
     onLoadPosts: () => dispatch(loadPosts()),
+    onLoadMore: () => dispatch(loadPosts({page: 2})),
   };
 }
 
