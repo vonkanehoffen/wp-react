@@ -22,7 +22,7 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  posts: [],
+  posts: {},
   fetchArgs: {},
 });
 
@@ -34,10 +34,13 @@ function postsReducer(state = initialState, action) {
         .set('loading', true)
         .set('error', false)
     case LOAD_POSTS_SUCCESS:
-      // TODO: make this merge posts in by IDs (not overwriting originals)
+      let posts = {};
+      action.posts.forEach(post => {
+        posts[post.id] = post;
+      });
       return state
         .set('loading', false)
-        .set('posts', action.posts);
+        .set('posts', state.get('posts').merge(posts));
     case LOAD_POSTS_ERROR:
       return state
         .set('error', action.error)
