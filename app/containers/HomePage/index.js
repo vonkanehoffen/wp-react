@@ -15,6 +15,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
+import LoadMoreButton from 'components/LoadMoreButton';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -30,7 +31,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
         {posts.valueSeq().map((post, i) => {
           return <Post post={post} key={i} />;
         })}
-        <button onClick={onLoadMore}>Load More</button>
+        <LoadMoreButton onClick={onLoadMore} />
       </div>
     );
   }
