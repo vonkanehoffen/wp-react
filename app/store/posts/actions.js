@@ -17,6 +17,7 @@
 
 import {
   LOAD_POSTS,
+  LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
 } from './constants';
@@ -30,6 +31,12 @@ export function loadPosts(args = {}) {
   return {
     type: LOAD_POSTS,
     args
+  };
+}
+
+export function loadMorePosts() {
+  return {
+    type: LOAD_MORE_POSTS,
   };
 }
 

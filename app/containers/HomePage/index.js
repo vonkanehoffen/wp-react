@@ -13,7 +13,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import { loadPosts } from '../../store/posts/actions';
+import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -39,7 +39,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 export function mapDispatchToProps(dispatch) {
   return {
     onLoadPosts: () => dispatch(loadPosts()),
-    onLoadMore: () => dispatch(loadPosts({page: 2})),
+    onLoadMore: () => dispatch(loadMorePosts()),
   };
 }
 

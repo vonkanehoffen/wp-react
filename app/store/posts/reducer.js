@@ -14,6 +14,7 @@ import { fromJS, OrderedMap, Map } from 'immutable';
 
 import {
   LOAD_POSTS,
+  LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
 } from './constants';
@@ -22,17 +23,21 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  posts: {},
-  fetchArgs: {},
+  posts: OrderedMap({}),
+  fetchArgs: Map({page: 1}),
 });
 
 function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
       return state
-        .set('fetchArgs', action.args)
+        // .mergeIn(['fetchArgs'], action.args)
+        .set('fetchArgs', Map(action.args))
         .set('loading', true)
-        .set('error', false)
+        .set('error', false);
+    case LOAD_MORE_POSTS:
+      return state
+        .updateIn(['fetchArgs', 'page'], (v = 1) => v + 1);
     case LOAD_POSTS_SUCCESS:
       let posts = {};
       action.posts.forEach(post => {
