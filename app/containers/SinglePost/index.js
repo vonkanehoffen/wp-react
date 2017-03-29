@@ -7,6 +7,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
+import config from 'config';
 import Post from 'components/Post';
 import { find } from 'lodash';
 import { loadPosts } from '../../store/posts/actions';
@@ -26,9 +27,9 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
     return (
       <div>
         <Helmet
-          title="SinglePost"
+          title={post.title.rendered+' - '+config.blogTitle}
           meta={[
-            { name: 'description', content: 'Description of SinglePost' },
+            { name: 'description', content: post.title.rendered },
           ]}
         />
         <h1>SinglePost: {params.slug}</h1>

@@ -12,6 +12,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import Helmet from 'react-helmet';
+import config from 'config'
 import messages from './messages';
 import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
@@ -25,8 +27,14 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
     const { posts, onLoadMore } = this.props;
     return (
       <div>
+        <Helmet
+          title={`Home - ${config.blogTitle}`}
+          meta={[
+            { name: 'description', content: 'Kane Clover - Full Stack Developer' },
+          ]}
+        />
         <h1>
-          <FormattedMessage {...messages.header} />
+          Kanec
         </h1>
         {posts.valueSeq().map((post, i) => {
           return <Post post={post} key={i} />;
