@@ -16,6 +16,7 @@ import Helmet from 'react-helmet';
 import config from 'config'
 import messages from './messages';
 import { loadPosts, loadMorePosts } from '../../store/posts/actions';
+import HomeSplash from 'components/HomeSplash';
 import Post from 'components/Post';
 import LoadMoreButton from 'components/LoadMoreButton';
 
@@ -33,9 +34,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
             { name: 'description', content: 'Kane Clover - Full Stack Developer' },
           ]}
         />
-        <h1>
-          Kanec
-        </h1>
+        <HomeSplash/>
         {posts.valueSeq().map((post, i) => {
           return <Post post={post} key={i} />;
         })}
