@@ -37,6 +37,7 @@ function postsReducer(state = initialState, action) {
         .set('error', false);
     case LOAD_MORE_POSTS:
       return state
+        .set('loading', true)
         .updateIn(['fetchArgs', 'page'], (v = 1) => v + 1);
     case LOAD_POSTS_SUCCESS:
       let posts = {};

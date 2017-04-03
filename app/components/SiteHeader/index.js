@@ -5,17 +5,21 @@
 */
 
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router';
 
 
 function SiteHeader() {
+
+  const Header = styled.header`
+     position: absolute;
+  `;
   return (
-    <div>
+    <Header>
       <ul>
         <li><Link to="/">Home</Link></li>
       </ul>
-    </div>
+    </Header>
   );
 }
 

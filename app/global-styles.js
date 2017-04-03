@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+import config from 'config';
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
@@ -9,22 +10,22 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-
-  body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Roboto, sans-serif;
   }
 
   #app {
-    background-color: #fafafa;
+    background-color: #fff;
     min-height: 100%;
     min-width: 100%;
   }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
+  
+  .container {
+    max-width: ${config.maxWidth};
+    padding: 0 15px;
+    margin: auto;
+  }
+  
+  p {
+    font-family: Lora, serif;
   }
 `;
