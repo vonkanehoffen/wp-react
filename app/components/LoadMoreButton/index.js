@@ -20,7 +20,7 @@ class LoadMoreButton extends React.Component { // eslint-disable-line react/pref
 }
 
 LoadMoreButton.propTypes = {
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func.isRequired
 };
 
 export default LoadMoreButton;

@@ -15,7 +15,8 @@ import { FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
 import config from 'config'
 import messages from './messages';
-import { loadPosts } from '../../store/posts/actions';
+import { loadPosts, loadMorePosts } from '../../store/posts/actions';
+import LoadMoreButton from 'components/LoadMoreButton';
 import HomeSplash from 'components/HomeSplash';
 import Post from 'components/Post';
 import ActionBar from 'containers/ActionBar';
@@ -38,7 +39,9 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
         {posts.valueSeq().map((post, i) => {
           return <Post post={post} key={i} />;
         })}
-        <ActionBar />
+        <ActionBar>
+          <LoadMoreButton onClick={onLoadMore} />
+        </ActionBar>
       </div>
     );
   }
@@ -47,6 +50,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 export function mapDispatchToProps(dispatch) {
   return {
     onLoadPosts: () => dispatch(loadPosts()),
+    onLoadMore: () => dispatch(loadMorePosts()),
   };
 }
 

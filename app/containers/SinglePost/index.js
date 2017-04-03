@@ -36,7 +36,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         />
         <h1>SinglePost: {params.slug}</h1>
         {post && <Post post={post}/>}
-        <ActionBar single={true} />
+        <ActionBar />
       </div>
     );
   }
