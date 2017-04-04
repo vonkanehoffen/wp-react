@@ -2,9 +2,9 @@
  * Gets the repositories of the user from Github
  */
 
-import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects';
+import { take, call, put, select, cancel, takeLatest, takeEvery } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_POSTS, LOAD_MORE_POSTS } from './constants';
+import { LOAD_POSTS, LOAD_MORE_POSTS, LOAD_FEATURED_MEDIA } from './constants';
 import { postsLoaded, postLoadingError } from './actions';
 import { makeSelectFetchArgs } from './selectors';
 
@@ -13,7 +13,7 @@ import request from '../../utils/request';
 // import { makeSelectUsername } from 'containers/HomePage/selectors';
 
 /**
- * Github repos request/response handler
+ * Posts request/response handler
  */
 export function* getPosts() {
   // Select args from store
@@ -30,18 +30,29 @@ export function* getPosts() {
 }
 
 /**
+ * Get featured images
+ */
+export function* getFeaturedMedia(action) {
+  console.log(action)
+}
+
+
+/**
  * Root saga manages watcher lifecycle
  */
 export function* postsData() {
   // Watches for LOAD_POSTS actions and calls getPosts when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
-  const watcher = yield takeLatest([LOAD_POSTS, LOAD_MORE_POSTS], getPosts);
-
+  yield takeLatest([LOAD_POSTS, LOAD_MORE_POSTS], getPosts);
   // Suspend execution until location changes
   // yield take(LOCATION_CHANGE);
   // yield cancel(watcher);
 }
 
+export function* featuredMediaSaga() {
+  yield takeEvery(LOAD_FEATURED_MEDIA, getFeaturedMedia)
+}
+
 // Bootstrap sagas
-export default [ postsData ];
+export default [ postsData, featuredMediaSaga ];

@@ -17,10 +17,13 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
+  LOAD_FEATURED_MEDIA,
+  LOAD_FEATURED_MEDIA_SUCCESS,
+  LOAD_FEATURED_MEDIA_ERROR,
 } from './constants';
 
 // The initial state of the App
-const initialState = fromJS({
+const initialState = Map({
   loading: false,
   error: false,
   posts: OrderedMap({}),
@@ -60,6 +63,11 @@ function postsReducer(state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false);
+    case LOAD_FEATURED_MEDIA:
+    case LOAD_FEATURED_MEDIA_SUCCESS:
+    case LOAD_FEATURED_MEDIA_ERROR:
+      return state
+        .setIn(['posts', action.postId, 'featuredMediaUrl'], 'stuff' ); // This just wipes out the whole existing post and doesn't update react component. FFS.
     default:
       return state;
   }

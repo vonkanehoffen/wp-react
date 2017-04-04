@@ -20,6 +20,9 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
+  LOAD_FEATURED_MEDIA,
+  LOAD_FEATURED_MEDIA_SUCCESS,
+  LOAD_FEATURED_MEDIA_ERROR,
 } from './constants';
 
 /**
@@ -67,4 +70,11 @@ export function postLoadingError(error) {
     type: LOAD_POSTS_ERROR,
     error,
   };
+}
+
+export function loadFeaturedMedia(postId) {
+  return {
+    type: LOAD_FEATURED_MEDIA,
+    postId,
+  }
 }

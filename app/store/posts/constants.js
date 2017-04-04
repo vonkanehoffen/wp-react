@@ -2,3 +2,6 @@ export const LOAD_POSTS = 'wpReact/App/LOAD_POSTS';
 export const LOAD_MORE_POSTS = 'wpReact/App/LOAD_MORE_POSTS';
 export const LOAD_POSTS_SUCCESS = 'wpReact/App/LOAD_POSTS_SUCCESS';
 export const LOAD_POSTS_ERROR = 'wpReact/App/LOAD_POSTS_ERROR';
+export const LOAD_FEATURED_MEDIA = 'wpReact/App/LOAD_FEATURED_MEDIA';
+export const LOAD_FEATURED_MEDIA_SUCCESS = 'wpReact/App/LOAD_FEATURED_MEDIA_SUCCESS';
+export const LOAD_FEATURED_MEDIA_ERROR = 'wpReact/App/LOAD_FEATURED_MEDIA_ERROR';

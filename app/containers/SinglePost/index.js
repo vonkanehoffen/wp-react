@@ -25,7 +25,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
     const { params, dispatch } = this.props
     const post = this.findPost(params.slug);
     if(post && post.featured_media > 0) {
-      dispatch(loadFeaturedMedia(post.id))
+      dispatch(loadFeaturedMedia(post.id, post.featured_media))
     }
   }
 
@@ -36,6 +36,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
     if(!this.findPost(params.slug)) {
       dispatch(loadPosts({slug: params.slug}))
     } else {
+      console.log('from did mount')
       this.checkFeaturedMedia()
     }
   }
@@ -43,6 +44,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
   // If the post is loaded and it should have a featured image, load that too
 
   componentDidUpdate(prevProps) {
+    console.log('from did update')
     this.checkFeaturedMedia()
   }
 
