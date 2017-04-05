@@ -4,45 +4,18 @@
  */
 
 import { combineReducers } from 'redux';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 
 import postsReducer from 'store/posts/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
-/*
- * routeReducer
- *
- * The reducer merges route location changes into our immutable state.
- * The change is necessitated by moving to react-router-redux@4
- *
- */
-
-// Initial routing state
-const routeInitialState = {
-  locationBeforeTransitions: null,
-};
-
-/**
- * Merge route into the global application state
- */
-function routeReducer(state = routeInitialState, action) {
-  switch (action.type) {
-    /* istanbul ignore next */
-    case LOCATION_CHANGE:
-      return Object.assign({}, state, {
-        locationBeforeTransitions: action.payload,
-      });
-    default:
-      return state;
-  }
-}
 
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
 export default function createReducer(asyncReducers) {
   return combineReducers({
-    route: routeReducer,
+    routing: routerReducer,
     posts: postsReducer,
     language: languageProviderReducer,
     ...asyncReducers,
