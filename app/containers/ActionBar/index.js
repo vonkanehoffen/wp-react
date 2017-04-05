@@ -45,7 +45,7 @@ function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.getIn(['posts', 'loading'])
+    loading: state.posts.loading
   }
 }
 

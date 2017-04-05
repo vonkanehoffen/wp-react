@@ -8,7 +8,7 @@ const selectPosts = (state) => state;
 
 const makeSelectFetchArgs = () => createSelector(
   selectPosts,
-  (postsState) => postsState.getIn(['posts', 'fetchArgs']).toJS()
+  (postsState) => postsState.posts.fetchArgs
 );
 
 export {

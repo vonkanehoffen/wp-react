@@ -23,7 +23,7 @@ export function* getPosts() {
   try {
     // Call our request helper (see 'utils/request')
     const posts = yield call(request, requestURL, args);
-    yield put(postsLoaded(posts));
+    yield put(postsLoaded(posts)); // TODO: Check an array comes back
   } catch (err) {
     yield put(postLoadingError(err));
   }

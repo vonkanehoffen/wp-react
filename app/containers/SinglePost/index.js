@@ -18,7 +18,10 @@ import styled from 'styled-components';
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   findPost(slug) {
-    return this.props.posts.find(post => post.slug === slug)
+    const posts = this.props.posts
+    for(let post in posts) {
+      if(posts[post].slug === slug) return posts[post]
+    }
   }
 
   checkFeaturedMedia() {
@@ -84,7 +87,7 @@ SinglePost.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.getIn(['posts', 'posts'])
+    posts: state.posts.posts
   }
 }
 

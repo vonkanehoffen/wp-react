@@ -36,7 +36,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
           ]}
         />
         <HomeSplash/>
-        {posts.valueSeq().map((post, i) => {
+        {posts.map((post, i) => {
           return <Post post={post} key={i} />;
         })}
         <ActionBar>
@@ -59,7 +59,7 @@ export function mapDispatchToProps(dispatch) {
 // });
 const mapStateToProps = (state) => {
   return {
-    posts: state.getIn(['posts', 'posts'])
+    posts: state.posts.posts
   }
 }
 
