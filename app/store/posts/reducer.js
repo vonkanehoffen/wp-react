@@ -11,6 +11,7 @@
  */
 
 import { cloneDeep } from 'lodash'
+import { mergeAndSortPosts } from 'utils/store'
 import {
   LOAD_POSTS,
   LOAD_MORE_POSTS,
@@ -36,6 +37,7 @@ function postsReducer(state = initialState, action) {
     case LOAD_POSTS:
       return Object.assign({}, state, {
         fetchArgs: Object.assign({}, state.fetchArgs, action.args),
+        // fetchArgs: action.args,
         loading: true,
         error: false,
       })
@@ -47,35 +49,9 @@ function postsReducer(state = initialState, action) {
         }
       })
     case LOAD_POSTS_SUCCESS:
-
-      // Merge
-      // TODO: This isn\t great as we're cloning old posts that haven't changed too
-      let newPosts = cloneDeep(state.posts)
-      action.posts.forEach(incomingPost => {
-        let exists = false;
-        newPosts.forEach((post, i) => {
-          // If ID matches, overwrite.
-          if(post.id === incomingPost.id) {
-            newPosts[i] = incomingPost
-            exists = true
-          }
-        })
-        // If not, add
-        if(!exists) newPosts.push(incomingPost)
-      });
-
-      // Sort into date order
-      newPosts.sort((a, b) => {
-        const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-          if (dateA > dateB) { return -1; }
-          if (dateA < dateB) { return 1; }
-          if (dateA === dateB) { return 0; }
-      })
-
       return Object.assign({}, state, {
         loading: false,
-        posts: newPosts,
+        posts: mergeAndSortPosts(state.posts, action.posts),
       })
 
     case LOAD_POSTS_ERROR:
