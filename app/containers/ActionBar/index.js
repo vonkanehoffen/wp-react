@@ -8,11 +8,12 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { loadMorePosts } from '../../store/posts/actions';
+import Error from 'components/Error'
 
 export class ActionBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
 
-    const { onLoadMore, loading, children } = this.props;
+    const { onLoadMore, loading, error, children } = this.props;
 
     const Bar = styled.nav`
       padding: 15px 0;
@@ -26,6 +27,7 @@ export class ActionBar extends React.Component { // eslint-disable-line react/pr
             :
             children
           }
+          {error && <Error message={error} /> }
         </div>
       </Bar>
     );
@@ -45,7 +47,8 @@ function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.posts.loading
+    loading: state.posts.loading,
+    error: state.posts.error,
   }
 }
 

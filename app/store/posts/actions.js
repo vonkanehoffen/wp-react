@@ -68,7 +68,7 @@ export function postsLoaded(posts) {
 export function postLoadingError(error) {
   return {
     type: LOAD_POSTS_ERROR,
-    error,
+    error: error.message,
   };
 }
 
