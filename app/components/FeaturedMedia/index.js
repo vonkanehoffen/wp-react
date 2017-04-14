@@ -8,11 +8,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-function FeaturedMedia({ post }) {
+function FeaturedMedia({ media }) {
   return (
     <div>
       Featured Image
-      <pre>{JSON.stringify(post.featured_media, null, 2)}</pre>
+      <img
+        src={media.media_details.sizes.large.source_url}
+        alt={media.title.rendered}
+      />
     </div>
   );
 }

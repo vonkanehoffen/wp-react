@@ -27,6 +27,12 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
   render() {
     const { post } = this.props;
     const title = post ? post.title.rendered : '';
+    let featuredMedia
+    try {
+      featuredMedia = post._embedded['wp:featuredmedia'][0]
+    } catch(e) {
+      featuredMedia = false
+    }
 
     const Spacer = styled.div`
       height: 60px;
@@ -40,8 +46,8 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
             { name: 'description', content: title },
           ]}
         />
-        {post && post.featured_media > 0 ?
-          <FeaturedMedia post={post} />
+        {featuredMedia ?
+          <FeaturedMedia media={featuredMedia} />
         :
           <Spacer />
         }
