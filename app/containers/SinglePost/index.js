@@ -16,27 +16,17 @@ import styled from 'styled-components';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
-  findPostBySlug(slug) {
-    const posts = this.props.posts
-    for(let post in posts) {
-      if(posts[post].slug === slug) return posts[post]
-    }
-  }
-
-  // If we don't already have the post stored, load it
-
   componentDidMount() {
-    const { params, dispatch } = this.props
-    if(!this.findPostBySlug(params.slug)) {
+    // If we don't already have the post stored, load it
+    const { post, params, dispatch } = this.props
+    if(!post) {
       dispatch(loadPosts({slug: params.slug}))
     }
   }
 
   render() {
-    const { posts, params } = this.props;
-    const post = this.findPostBySlug(params.slug);
+    const { post } = this.props;
     const title = post ? post.title.rendered : '';
-    const featuredMedia = post ? post.featured_media : 0;
 
     const Spacer = styled.div`
       height: 60px;
@@ -66,9 +56,18 @@ SinglePost.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
+// This should be a reselect selector thing....
+function findPostBySlug(posts, slug) {
+  for(let post in posts) {
+    if(posts[post].slug === slug) return posts[post]
+  }
+  return false
+}
+
+const mapStateToProps = (state, props) => {
+  const { posts } = state.posts
   return {
-    posts: state.posts.posts
+    post: findPostBySlug(posts, props.params.slug)
   }
 }
 
