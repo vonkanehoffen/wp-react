@@ -7,6 +7,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_POSTS, LOAD_MORE_POSTS, LOAD_FEATURED_MEDIA } from './constants';
 import { postsLoaded, postLoadingError } from './actions';
 import { makeSelectFetchArgs } from './selectors';
+import config from 'config'
 
 // Import paths: https://intellij-support.jetbrains.com/hc/en-us/community/posts/207656825-Custom-import-paths-with-es6
 import request from '../../utils/request';
@@ -18,7 +19,9 @@ import request from '../../utils/request';
 export function* getPosts() {
   // Select args from store
   const args = yield select(makeSelectFetchArgs());
-  const requestURL = `http://kanec.co.uk/wp-json/wp/v2/posts`;
+  args['_embed'] = 1;
+  const requestURL = config.apiRoot + '/posts';
+
 
   try {
     // Call our request helper (see 'utils/request')
@@ -50,9 +53,5 @@ export function* postsData() {
   // yield cancel(watcher);
 }
 
-export function* featuredMediaSaga() {
-  yield takeEvery(LOAD_FEATURED_MEDIA, getFeaturedMedia)
-}
-
 // Bootstrap sagas
-export default [ postsData, featuredMediaSaga ];
+export default [ postsData ];

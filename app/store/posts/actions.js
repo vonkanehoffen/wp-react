@@ -71,10 +71,3 @@ export function postLoadingError(error) {
     error: error.message,
   };
 }
-
-export function loadFeaturedMedia(postId) {
-  return {
-    type: LOAD_FEATURED_MEDIA,
-    postId,
-  }
-}

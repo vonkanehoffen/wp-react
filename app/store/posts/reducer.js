@@ -17,9 +17,6 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
-  LOAD_FEATURED_MEDIA,
-  LOAD_FEATURED_MEDIA_SUCCESS,
-  LOAD_FEATURED_MEDIA_ERROR,
 } from './constants';
 
 // The initial state of the App
@@ -36,6 +33,7 @@ function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
       return Object.assign({}, state, {
+        // TODO: This isn't ok when nav back to home page from single entry
         fetchArgs: Object.assign({}, state.fetchArgs, action.args),
         // fetchArgs: action.args,
         loading: true,
@@ -59,11 +57,7 @@ function postsReducer(state = initialState, action) {
         error: action.error,
         loading: false,
       })
-    case LOAD_FEATURED_MEDIA:
-    case LOAD_FEATURED_MEDIA_SUCCESS:
-    case LOAD_FEATURED_MEDIA_ERROR:
-      // return Object.assign({}, state, )
-      //   .setIn(['posts', action.postId, 'featuredMediaUrl'], 'stuff' ); // This just wipes out the whole existing post and doesn't update react component. FFS.
+
     default:
       return state;
   }
