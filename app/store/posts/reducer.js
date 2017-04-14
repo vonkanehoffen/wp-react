@@ -33,7 +33,6 @@ function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
       return Object.assign({}, state, {
-        // TODO: This isn't ok when nav back to home page from single entry
         fetchArgs: Object.assign({}, state.fetchArgs, action.args),
         // fetchArgs: action.args,
         loading: true,

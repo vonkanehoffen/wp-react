@@ -49,7 +49,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onLoadPosts: () => dispatch(loadPosts()),
+    onLoadPosts: () => dispatch(loadPosts({ slug: false })),
     onLoadMore: () => dispatch(loadMorePosts()),
   };
 }
