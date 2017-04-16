@@ -12,6 +12,7 @@ import Post from 'components/Post';
 import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'containers/ActionBar';
 import FeaturedMedia from 'components/FeaturedMedia';
+import Tags from 'components/Tags';
 import styled from 'styled-components';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -27,11 +28,16 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
   render() {
     const { post } = this.props;
     const title = post ? post.title.rendered : '';
-    let featuredMedia
+    let featuredMedia, tags
     try {
       featuredMedia = post._embedded['wp:featuredmedia'][0]
     } catch(e) {
       featuredMedia = false
+    }
+    try {
+      tags = post._embedded['wp:term'][1] // 1 is always tags. 0 is category which we won't us yet.
+    } catch(e) {
+      tags = false
     }
 
     const Spacer = styled.div`
@@ -51,6 +57,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         :
           <Spacer />
         }
+        {tags && <Tags terms={tags}/>}
         {post && <Post post={post}/>}
         <ActionBar />
       </div>
