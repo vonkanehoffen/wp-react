@@ -10,6 +10,8 @@ import Helmet from 'react-helmet';
 import { TextField } from 'material-ui';
 import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
+import ActionBar from 'containers/ActionBar'
+
 export class Search extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
 
@@ -28,6 +30,7 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
         {results.map((post, i) => {
           return <Post post={post} key={i} />;
         })}
+        <ActionBar/>
       </div>
     );
   }
