@@ -13,7 +13,6 @@
 import { mergeAndSortPosts } from 'utils/store'
 import {
   LOAD_POSTS,
-  LOAD_SEARCH,
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
@@ -37,12 +36,6 @@ function postsReducer(state = initialState, action) {
         fetchArgs: Object.assign({}, state.fetchArgs, action.args),
         loading: true,
         error: false,
-      })
-    case LOAD_SEARCH:
-      return Object.assign({}, state, {
-        fetchArgs: Object.assign({}, state.fetchArgs, {
-          search: action.search
-        })
       })
     case LOAD_MORE_POSTS:
       return Object.assign({}, state, {

@@ -32,8 +32,8 @@ export function* getPosts() {
       yield put(postLoadingError(err));
     }
   }
-  const requestURL = config.apiRoot + '/posts';
 
+  const requestURL = config.apiRoot + '/posts';
 
   try {
     // TODO: Could slim down API responses with https://wordpress.org/plugins/rest-api-filter-fields/ maybe?

@@ -24,7 +24,7 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
           ]}
         />
         <h2>This is search.</h2>
-        <TextField value={fetchArgs.search} onChange={onSearchInput} name="search" />
+        <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" />
         {results.map((post, i) => {
           return <Post post={post} key={i} />;
         })}
@@ -38,6 +38,9 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
 // };
 
 function filterPostsBySearchTerm(posts, search) {
+  // Basic filter of search results (so pre-existing records are returned instantly)
+  // TODO: More comprehensive search filter.
+  // See https://wordpress.stackexchange.com/questions/115945/how-does-wordpress-search-work-behind-the-scenes
   return posts.filter(post => {
     if(search) {
       if(post.title.rendered.toLowerCase().indexOf(search.toLowerCase()) !== -1) return post;

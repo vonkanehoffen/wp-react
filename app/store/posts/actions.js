@@ -20,7 +20,6 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
-  LOAD_SEARCH,
 } from './constants';
 
 /**
@@ -38,13 +37,6 @@ export function loadPosts(args = {}) {
 export function loadMorePosts() {
   return {
     type: LOAD_MORE_POSTS,
-  }
-}
-
-export function loadSearch(search) {
-  return {
-    type: LOAD_SEARCH,
-    search,
   }
 }
 
