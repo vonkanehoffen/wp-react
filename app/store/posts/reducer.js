@@ -34,16 +34,15 @@ function postsReducer(state = initialState, action) {
     case LOAD_POSTS:
       return Object.assign({}, state, {
         fetchArgs: Object.assign({}, state.fetchArgs, action.args),
-        // fetchArgs: action.args,
         loading: true,
         error: false,
       })
     case LOAD_MORE_POSTS:
       return Object.assign({}, state, {
         loading: true,
-        fetchArgs: {
-          page: state.fetchArgs.page + 1 // TODO: this removes any other object prop
-        }
+        fetchArgs: Object.assign({}, state.fetchArgs, {
+          page: state.fetchArgs.page + 1
+        })
       })
     case LOAD_POSTS_SUCCESS:
       return Object.assign({}, state, {
