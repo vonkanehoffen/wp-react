@@ -21,7 +21,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
     // If we don't already have the post stored, load it
     const { post, params, dispatch } = this.props
     if(!post) {
-      dispatch(loadPosts({slug: params.slug}))
+      dispatch(loadPosts({ slug: params.slug, search: false }))
     }
   }
 

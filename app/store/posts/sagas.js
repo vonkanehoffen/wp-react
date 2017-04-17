@@ -36,7 +36,7 @@ export function* getPosts() {
 
 
   try {
-    // TODO: Could slim dow API responses with https://wordpress.org/plugins/rest-api-filter-fields/ maybe?
+    // TODO: Could slim down API responses with https://wordpress.org/plugins/rest-api-filter-fields/ maybe?
     // Call our request helper (see 'utils/request')
     const posts = yield call(request, requestURL, args);
     yield put(postsLoaded(posts)); // TODO: Check an array comes back

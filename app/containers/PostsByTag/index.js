@@ -42,7 +42,7 @@ export class PostsByTag extends React.Component { // eslint-disable-line react/p
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLoadPosts: (tagSlug) => dispatch(loadPosts({ tagSlug })),
+    onLoadPosts: (tagSlug) => dispatch(loadPosts({ tagSlug, search: false })),
     onLoadMore: () => dispatch(loadMorePosts()),
   };
 }

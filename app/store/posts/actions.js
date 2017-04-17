@@ -20,36 +20,40 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
-  LOAD_FEATURED_MEDIA,
-  LOAD_FEATURED_MEDIA_SUCCESS,
-  LOAD_FEATURED_MEDIA_ERROR,
+  LOAD_SEARCH,
 } from './constants';
 
 /**
- * Load the repositories, this action starts the request saga
+ * Load posts - this action starts the request saga
  *
- * @return {object} An action object with a type of LOAD_REPOS
+ * @return {object} An action object with a type of LOAD_POSTS
  */
 export function loadPosts(args = {}) {
   return {
     type: LOAD_POSTS,
-    args
-  };
+    args,
+  }
 }
 
 export function loadMorePosts() {
   return {
     type: LOAD_MORE_POSTS,
-  };
+  }
+}
+
+export function loadSearch(search) {
+  return {
+    type: LOAD_SEARCH,
+    search,
+  }
 }
 
 /**
- * Dispatched when the repositories are loaded by the request saga
+ * Dispatched when the posts are loaded by the request saga
  *
- * @param  {array} repos The repository data
- * @param  {string} username The current username
+ * @param  {array} posts The repository data
  *
- * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
+ * @return {object}      An action object with a type of LOAD_POSTS_SUCCESS passing the repos
  */
 export function postsLoaded(posts) {
   return {
@@ -59,11 +63,11 @@ export function postsLoaded(posts) {
 }
 
 /**
- * Dispatched when loading the repositories fails
+ * Dispatched when loading the posts fails
  *
  * @param  {object} error The error
  *
- * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
+ * @return {object}       An action object with a type of LOAD_POSTS_ERROR passing the error
  */
 export function postLoadingError(error) {
   return {

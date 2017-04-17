@@ -24,7 +24,7 @@ function SiteHeader() {
     <Header>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><button>Search</button></li>
+        <li><Link to="/search">Search</Link></li>
         <li><Link to="/contact">Contact</Link></li>
       </ul>
     </Header>

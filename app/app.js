@@ -15,6 +15,8 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -41,6 +43,9 @@ import './global-styles';
 // Import root routes
 import createRoutes from './routes';
 
+// Tap event plugin for material-ui
+injectTapEventPlugin();
+
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
 // Optionally, this could be changed to leverage a created history
@@ -62,17 +67,19 @@ const rootRoute = {
 const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <Router
-          history={history}
-          routes={rootRoute}
-          render={
-            // Scroll to top when going to a new page, imitating default browser
-            // behaviour
-            applyRouterMiddleware(useScroll())
-          }
-        />
-      </LanguageProvider>
+      <MuiThemeProvider>
+        <LanguageProvider messages={messages}>
+          <Router
+            history={history}
+            routes={rootRoute}
+            render={
+              // Scroll to top when going to a new page, imitating default browser
+              // behaviour
+              applyRouterMiddleware(useScroll())
+            }
+          />
+        </LanguageProvider>
+      </MuiThemeProvider>
     </Provider>,
     document.getElementById('app')
   );
