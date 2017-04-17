@@ -12,8 +12,8 @@ import styled from 'styled-components';
 function Tags({ terms }) {
   return (
     <ul>
-      {terms.map(term =>
-        <li>Tag: <Link to={`/tag/${term.slug}/`}>{term.name}</Link></li>
+      {terms.map((term, i) =>
+        <li key={i}>Tag: <Link to={`/tag/${term.slug}/`}>{term.name}</Link></li>
       )}
     </ul>
   );
