@@ -13,6 +13,12 @@ function SiteHeader() {
 
   const Header = styled.header`
      position: absolute;
+     ul {
+       list-style: none;
+     }
+       li {
+         display: inline-block;
+       }
   `;
   return (
     <Header>
