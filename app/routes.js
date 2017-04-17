@@ -43,6 +43,14 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
+      path: '/tag/:slug',
+      name: 'postsByTag',
+      getComponent(location, cb) {
+        import('containers/PostsByTag')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

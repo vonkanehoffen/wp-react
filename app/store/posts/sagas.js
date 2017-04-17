@@ -4,7 +4,7 @@
 
 import { take, call, put, select, cancel, takeLatest, takeEvery } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_POSTS, LOAD_MORE_POSTS, LOAD_FEATURED_MEDIA } from './constants';
+import { LOAD_POSTS, LOAD_MORE_POSTS } from './constants';
 import { postsLoaded, postLoadingError } from './actions';
 import { makeSelectFetchArgs } from './selectors';
 import config from 'config'
@@ -20,10 +20,23 @@ export function* getPosts() {
   // Select args from store
   const args = yield select(makeSelectFetchArgs());
   args['_embed'] = 1;
+
+  // If we're getting posts by tag, get the ID so we can query the API
+  // See https://github.com/WP-API/WP-API/issues/2949
+  if(args.hasOwnProperty('tagSlug') && args['tagSlug'].length > 0) {
+    try{
+      const tags = yield call(request, config.apiRoot + '/tags', { slug: args.tagSlug })
+      args['tags'] = tags[0].id
+      args['tagSlug'] = false
+    } catch (err) {
+      yield put(postLoadingError(err));
+    }
+  }
   const requestURL = config.apiRoot + '/posts';
 
 
   try {
+    // TODO: Could slim dow API responses with https://wordpress.org/plugins/rest-api-filter-fields/ maybe?
     // Call our request helper (see 'utils/request')
     const posts = yield call(request, requestURL, args);
     yield put(postsLoaded(posts)); // TODO: Check an array comes back
@@ -31,14 +44,6 @@ export function* getPosts() {
     yield put(postLoadingError(err));
   }
 }
-
-/**
- * Get featured images
- */
-export function* getFeaturedMedia(action) {
-  console.log(action)
-}
-
 
 /**
  * Root saga manages watcher lifecycle
