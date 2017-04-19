@@ -10,6 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
+import u from 'updeep'
 import { mergeAndSortPosts } from 'utils/store'
 import {
   LOAD_POSTS,
@@ -31,52 +32,53 @@ const initialState = {
   fetchArgs: {
     page: 1,
     search: '',
+    _embed: true,
   },
 };
 
 function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
-      return Object.assign({}, state, {
-        fetchArgs: Object.assign({}, state.fetchArgs, action.args),
+      return u({
+        fetchArgs: action.args,
         loading: true,
         error: false,
-      })
+      }, state)
     case LOAD_MORE_POSTS:
-      return Object.assign({}, state, {
+      return u({
         loading: true,
-        fetchArgs: Object.assign({}, state.fetchArgs, {
+        fetchArgs: {
           page: state.fetchArgs.page + 1
-        })
-      })
+        }
+      }, state)
     case LOAD_POSTS_SUCCESS:
-      return Object.assign({}, state, {
+      return u({
         loading: false,
         posts: mergeAndSortPosts(state.posts, action.posts),
-      })
+      }, state)
     case LOAD_POSTS_ERROR:
-      return Object.assign({}, state, {
+      return u({
         error: action.error,
         loading: false,
-      })
+      }, state)
 
     // Comments
     case SAVE_COMMENT:
-      return Object.assign({}, state, {
+      return u({
         commentSaving: true,
         commentError: false,
-      })
+      }, state)
     case SAVE_COMMENT_SUCCESS:
       debugger
-      return Object.assign({}, state, {
+      return u({
         commentSaving: false,
-// insert comment ere
-      })
+
+      }, state)
     case SAVE_COMMENT_ERROR:
-      return Object.assign({}, state, {
+      return u({
         error: action.error,
         commentSaving: false,
-      })
+      }, state)
     default:
       return state;
   }

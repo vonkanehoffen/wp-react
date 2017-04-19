@@ -19,7 +19,6 @@ import request from '../../utils/request';
 export function* getPosts() {
   // Select args from store
   const args = yield select(makeSelectFetchArgs());
-  args['_embed'] = 1;
 
   // If we're getting posts by tag, get the ID so we can query the API
   // See https://github.com/WP-API/WP-API/issues/2949
@@ -67,7 +66,8 @@ export function* saveCommentData(action) {
     const comment = yield call(
       request,
       config.apiRoot + '/comments',
-      action.args
+      action.args,
+      { method: 'POST' }
     )
     // TODO: check for comment errors here
     yield put(commentSaved(comment))
