@@ -26,7 +26,7 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
           ]}
         />
         <h2>This is search.</h2>
-        <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" />
+        <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" autoFocus />
         {results.map((post, i) => {
           return <Post post={post} key={i} />;
         })}
@@ -55,7 +55,7 @@ function filterPostsBySearchTerm(posts, search) {
 function mapDispatchToProps(dispatch) {
   return {
     onSearchInput: (event) => {
-      dispatch(loadPosts({search: event.target.value}))
+      dispatch(loadPosts({search: event.target.value, slug: false}))
     },
   };
 }

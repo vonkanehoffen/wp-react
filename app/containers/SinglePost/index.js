@@ -13,6 +13,7 @@ import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'containers/ActionBar';
 import FeaturedMedia from 'components/FeaturedMedia';
 import Tags from 'components/Tags';
+import Comments from 'components/Comments';
 import styled from 'styled-components';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -26,19 +27,10 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
   }
 
   render() {
-    const { post } = this.props;
+    const { post, onReply } = this.props;
     const title = post ? post.title.rendered : '';
-    let featuredMedia, tags
-    try {
-      featuredMedia = post._embedded['wp:featuredmedia'][0]
-    } catch(e) {
-      featuredMedia = false
-    }
-    try {
-      tags = post._embedded['wp:term'][1] // 1 is always tags. 0 is category which we won't us yet.
-    } catch(e) {
-      tags = false
-    }
+    const featuredMedia = _.get(post, ['_embedded', 'wp:featuredmedia', '0'], false)
+    const tags = _.get(post, ['_embedded', 'wp:term', '1'], false) // 1 is always tags. 0 is category which we won't us yet.
 
     const Spacer = styled.div`
       height: 60px;
@@ -59,6 +51,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         }
         {tags && <Tags terms={tags}/>}
         {post && <Post post={post}/>}
+        <Comments post={post} onReply={onReply} />
         <ActionBar />
       </div>
     );
@@ -87,6 +80,9 @@ const mapStateToProps = (state, props) => {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    onReply: reply => {
+      debugger
+    }
   };
 }
 
