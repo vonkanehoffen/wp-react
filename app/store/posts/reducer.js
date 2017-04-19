@@ -69,11 +69,14 @@ function postsReducer(state = initialState, action) {
         commentError: false,
       }, state)
     case SAVE_COMMENT_SUCCESS:
-      debugger
+      const postIndex = _.findIndex(state.posts, post =>
+        post.id === action.comment.post
+      )
       return u({
         commentSaving: false,
-
-      }, state)
+        posts: { [postIndex]: { _embedded: { replies: { 0: (replies) =>
+          [].concat(replies, [action.comment])
+      }}}}}, state)
     case SAVE_COMMENT_ERROR:
       return u({
         error: action.error,
