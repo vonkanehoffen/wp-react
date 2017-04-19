@@ -51,7 +51,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         }
         {tags && <Tags terms={tags}/>}
         {post && <Post post={post}/>}
-        <Comments post={post} onReply={onReply} />
+        {post && <Comments post={post} />}
         <ActionBar />
       </div>
     );
@@ -80,9 +80,6 @@ const mapStateToProps = (state, props) => {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    onReply: reply => {
-      debugger
-    }
   };
 }
 

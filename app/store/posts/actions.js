@@ -52,3 +52,10 @@ export const postsLoaded = posts => ({ type: LOAD_POSTS_SUCCESS, posts })
  */
 export const postLoadingError = error => ({ type: LOAD_POSTS_ERROR, error: error.message })
 
+
+// Comments
+
+export const saveComment = args => ({ type: SAVE_COMMENT, args })
+export const commentSaved = comment => ({ type: SAVE_COMMENT_SUCCESS, comment})
+export const commentSavingError = error => ({ type: SAVE_COMMENT_ERROR, error: error.message })
+

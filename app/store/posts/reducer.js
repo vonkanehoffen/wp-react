@@ -16,12 +16,17 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
+  SAVE_COMMENT,
+  SAVE_COMMENT_SUCCESS,
+  SAVE_COMMENT_ERROR,
 } from './constants';
 
 // The initial state of the App
 const initialState = {
   loading: false,
   error: false,
+  commentSaving: false,
+  commentError: false,
   posts: [],
   fetchArgs: {
     page: 1,
@@ -49,13 +54,29 @@ function postsReducer(state = initialState, action) {
         loading: false,
         posts: mergeAndSortPosts(state.posts, action.posts),
       })
-
     case LOAD_POSTS_ERROR:
       return Object.assign({}, state, {
         error: action.error,
         loading: false,
       })
 
+    // Comments
+    case SAVE_COMMENT:
+      return Object.assign({}, state, {
+        commentSaving: true,
+        commentError: false,
+      })
+    case SAVE_COMMENT_SUCCESS:
+      debugger
+      return Object.assign({}, state, {
+        commentSaving: false,
+// insert comment ere
+      })
+    case SAVE_COMMENT_ERROR:
+      return Object.assign({}, state, {
+        error: action.error,
+        commentSaving: false,
+      })
     default:
       return state;
   }

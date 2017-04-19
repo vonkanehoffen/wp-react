@@ -4,8 +4,8 @@
 
 import { take, call, put, select, cancel, takeLatest, takeEvery } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_POSTS, LOAD_MORE_POSTS } from './constants';
-import { postsLoaded, postLoadingError } from './actions';
+import { LOAD_POSTS, LOAD_MORE_POSTS, SAVE_COMMENT } from './constants';
+import { postsLoaded, postLoadingError, commentSaved, commentSavingError } from './actions';
 import { makeSelectFetchArgs } from './selectors';
 import config from 'config'
 
@@ -58,5 +58,27 @@ export function* postsData() {
   // yield cancel(watcher);
 }
 
+/**
+ * Comments
+ */
+
+export function* saveCommentData(action) {
+  try {
+    const comment = yield call(
+      request,
+      config.apiRoot + '/comments',
+      action.args
+    )
+    // TODO: check for comment errors here
+    yield put(commentSaved(comment))
+  } catch(err) {
+    yield put(commentSavingError(err))
+  }
+}
+
+export function* commentData() {
+  yield takeLatest([SAVE_COMMENT], saveCommentData)
+}
+
 // Bootstrap sagas
-export default [ postsData ];
+export default [ postsData, commentData ];

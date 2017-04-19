@@ -5,21 +5,20 @@
 */
 
 import React from 'react';
+import CommentForm from './CommentForm';
 // import styled from 'styled-components';
 
 class Comments extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   printComments(rootComment, comments) {
     const childComments = comments.filter(c => c.parent === rootComment.id)
-    console.log(rootComment, childComments)
     return (
-      <div key={rootComment.id}>
-        <div style={{marginLeft: '10px'}}>
-          parent: {rootComment.parent},
-          id: {rootComment.id},
-          <div style={{background: '#faa'}} dangerouslySetInnerHTML={{__html: rootComment.content.rendered}} />
-          {childComments.map(c => this.printComments(c, comments))}
-        </div>
+      <div key={rootComment.id} style={{marginLeft: '10px'}}>
+        parent: {rootComment.parent},
+        id: {rootComment.id},
+        <div style={{background: '#faa'}} dangerouslySetInnerHTML={{__html: rootComment.content.rendered}} />
+        <CommentForm postId={this.props.post.id} parentId={rootComment.id} />
+        {childComments.map(c => this.printComments(c, comments))}
       </div>
     )
   }
@@ -42,7 +41,7 @@ class Comments extends React.Component { // eslint-disable-line react/prefer-sta
 }
 
 Comments.propTypes = {
-
+  post: React.PropTypes.object,
 };
 
 export default Comments;
