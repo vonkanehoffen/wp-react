@@ -20,6 +20,9 @@ import {
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
+  SAVE_COMMENT,
+  SAVE_COMMENT_SUCCESS,
+  SAVE_COMMENT_ERROR,
 } from './constants';
 
 /**
@@ -27,18 +30,9 @@ import {
  *
  * @return {object} An action object with a type of LOAD_POSTS
  */
-export function loadPosts(args = {}) {
-  return {
-    type: LOAD_POSTS,
-    args,
-  }
-}
+export const loadPosts = (args = {}) => ({ type: LOAD_POSTS, args })
 
-export function loadMorePosts() {
-  return {
-    type: LOAD_MORE_POSTS,
-  }
-}
+export const loadMorePosts = () => ({ type: LOAD_MORE_POSTS })
 
 /**
  * Dispatched when the posts are loaded by the request saga
@@ -47,12 +41,7 @@ export function loadMorePosts() {
  *
  * @return {object}      An action object with a type of LOAD_POSTS_SUCCESS passing the repos
  */
-export function postsLoaded(posts) {
-  return {
-    type: LOAD_POSTS_SUCCESS,
-    posts,
-  };
-}
+export const postsLoaded = posts => ({ type: LOAD_POSTS_SUCCESS, posts })
 
 /**
  * Dispatched when loading the posts fails
@@ -61,9 +50,5 @@ export function postsLoaded(posts) {
  *
  * @return {object}       An action object with a type of LOAD_POSTS_ERROR passing the error
  */
-export function postLoadingError(error) {
-  return {
-    type: LOAD_POSTS_ERROR,
-    error: error.message,
-  };
-}
+export const postLoadingError = error => ({ type: LOAD_POSTS_ERROR, error: error.message })
+
