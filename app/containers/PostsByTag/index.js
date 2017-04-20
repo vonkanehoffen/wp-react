@@ -57,9 +57,7 @@ function filterPostsByTagSlug(posts, slug) {
   return posts.filter(post => {
     const terms = _.get(post, ['_embedded', 'wp:term'], false)
     if(!terms) return false
-    const flatTerms = _.flattenDeep(terms)
-    const found = flatTerms.find(term => term.slug === slug)
-    return found
+    return _.flattenDeep(terms).find(term => term.slug === slug)
   })
 }
 
