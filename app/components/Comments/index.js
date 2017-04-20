@@ -35,6 +35,7 @@ class Comments extends React.Component { // eslint-disable-line react/prefer-sta
           .map(rootComment =>
             this.printComments(rootComment, comments[0])
         )}
+        <CommentForm postId={this.props.post.id} parentId={0} />
       </div>
     );
   }

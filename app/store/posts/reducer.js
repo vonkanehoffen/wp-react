@@ -69,13 +69,14 @@ function postsReducer(state = initialState, action) {
         commentError: false,
       }, state)
     case SAVE_COMMENT_SUCCESS:
+      // Get index of relevant post from returned comment and append
       const postIndex = _.findIndex(state.posts, post =>
         post.id === action.comment.post
       )
       return u({
         commentSaving: false,
         posts: { [postIndex]: { _embedded: { replies: { 0: (replies) =>
-          [].concat(replies, [action.comment])
+          replies ? [].concat(replies, [action.comment]) : [action.comment]
       }}}}}, state)
     case SAVE_COMMENT_ERROR:
       return u({
