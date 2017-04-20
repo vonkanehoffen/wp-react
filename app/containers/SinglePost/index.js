@@ -13,7 +13,7 @@ import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'containers/ActionBar';
 import FeaturedMedia from 'components/FeaturedMedia';
 import Tags from 'components/Tags';
-import Comments from 'components/Comments';
+import Comments from 'containers/Comments';
 import styled from 'styled-components';
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
