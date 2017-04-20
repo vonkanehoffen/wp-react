@@ -23,4 +23,8 @@ export default styled.header`
     li {
       display: inline-block;
     }
+  img {
+    width: 40px;
+    height: 40px;
+  }
 `;

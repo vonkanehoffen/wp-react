@@ -17,6 +17,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { muiTheme } from 'muiTheme'
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -67,7 +68,7 @@ const rootRoute = {
 const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <LanguageProvider messages={messages}>
           <Router
             history={history}
