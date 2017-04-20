@@ -14,7 +14,16 @@ class CommentForm extends React.Component {
       author_name: '',
       author_email: '',
       content: '',
+      formOpen: false,
     }
+  }
+
+  openForm = () => {
+    this.setState({ formOpen: true })
+  }
+
+  closeForm = () => {
+    this.setState({ formOpen: false })
   }
 
   handleChange = (event) => {
@@ -39,14 +48,23 @@ class CommentForm extends React.Component {
   render () {
     const { postId, parentId } = this.props
     return (
-      <form onSubmit={this.handleSubmit}>
-        Comment form:
-        <pre>Post ID: {postId}, parent ID: {parentId}</pre>
-        <TextField id="author_name" value={this.state.author_name} onChange={this.handleChange} floatingLabelText="Your Name" />
-        <TextField id="author_email" value={this.state.author_email} onChange={this.handleChange} floatingLabelText="Email" type="email"/>
-        <TextField id="content" value={this.state.content} onChange={this.handleChange} floatingLabelText="Comment" multiLine={true} />
-        <RaisedButton onClick={this.handleSubmit} label="Post" primary={true} />
-      </form>
+      <div>
+        {this.state.formOpen ?
+          <form onSubmit={this.handleSubmit}>
+            <p>Leave a comment:</p>
+            <TextField id="author_name" value={this.state.author_name} onChange={this.handleChange}
+                       floatingLabelText="Your Name"/>
+            <TextField id="author_email" value={this.state.author_email} onChange={this.handleChange}
+                       floatingLabelText="Email" type="email"/>
+            <TextField id="content" value={this.state.content} onChange={this.handleChange} floatingLabelText="Comment"
+                       multiLine={true}/>
+            <RaisedButton onClick={this.handleSubmit} label="Post" primary={true}/>
+            <RaisedButton onClick={this.closeForm} label="Cancel" />
+          </form>
+          :
+          <RaisedButton onClick={this.openForm} label="Leave a comment" primary={true}/>
+        }
+      </div>
     )
   }
 }
