@@ -40,7 +40,7 @@ const initialState = {
 function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
-    case LOAD_POSTS_BY_TAG:
+    case LOAD_POSTS_BY_TAG: // TODO: Problem with merging here is that on navigating back to the main posts page, date order gets messed up.
       return u({
         fetchArgs: action.args,
         loading: true,

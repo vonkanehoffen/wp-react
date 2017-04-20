@@ -5,27 +5,18 @@
 */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router';
-
+import SearchIcon from 'material-ui/svg-icons/action/search'
+import Header from './style'
 
 function SiteHeader() {
 
-  const Header = styled.header`
-     position: absolute;
-     ul {
-       list-style: none;
-     }
-       li {
-         display: inline-block;
-       }
-  `;
   return (
     <Header>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/search">Search</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/search"><SearchIcon color="#fff"/></Link></li>
       </ul>
     </Header>
   );
