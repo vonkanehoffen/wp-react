@@ -17,6 +17,7 @@
 
 import {
   LOAD_POSTS,
+  LOAD_POSTS_BY_TAG,
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
@@ -31,6 +32,7 @@ import {
  * @return {object} An action object with a type of LOAD_POSTS
  */
 export const loadPosts = (args = {}) => ({ type: LOAD_POSTS, args })
+export const loadPostsByTag = (args = {}) => ({ type: LOAD_POSTS_BY_TAG, args })
 
 export const loadMorePosts = () => ({ type: LOAD_MORE_POSTS })
 

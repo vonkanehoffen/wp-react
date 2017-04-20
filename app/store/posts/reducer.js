@@ -14,6 +14,7 @@ import u from 'updeep'
 import { mergeAndSortPosts } from 'utils/store'
 import {
   LOAD_POSTS,
+  LOAD_POSTS_BY_TAG,
   LOAD_MORE_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
@@ -39,6 +40,7 @@ const initialState = {
 function postsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_POSTS:
+    case LOAD_POSTS_BY_TAG:
       return u({
         fetchArgs: action.args,
         loading: true,

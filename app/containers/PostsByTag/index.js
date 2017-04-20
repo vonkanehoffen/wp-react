@@ -7,7 +7,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { loadPosts, loadMorePosts } from '../../store/posts/actions';
+import { loadPostsByTag, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
 import ActionBar from 'containers/ActionBar'
 import LoadMoreButton from 'components/LoadMoreButton'
@@ -42,15 +42,25 @@ export class PostsByTag extends React.Component { // eslint-disable-line react/p
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLoadPosts: (tagSlug) => dispatch(loadPosts({ tagSlug, search: false })),
+    onLoadPosts: (tagSlug) => dispatch(loadPostsByTag({ tagSlug, search: false, slug: false })),
     onLoadMore: () => dispatch(loadMorePosts()),
   };
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    posts: state.posts.posts
+    posts: filterPostsByTagSlug(state.posts.posts, ownProps.params.slug),
   }
+}
+
+function filterPostsByTagSlug(posts, slug) {
+  return posts.filter(post => {
+    const terms = _.get(post, ['_embedded', 'wp:term'], false)
+    if(!terms) return false
+    const flatTerms = _.flattenDeep(terms)
+    const found = flatTerms.find(term => term.slug === slug)
+    return found
+  })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsByTag);
