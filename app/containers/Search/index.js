@@ -10,7 +10,7 @@ import Helmet from 'react-helmet';
 import { TextField } from 'material-ui';
 import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
-import ActionBar from 'containers/ActionBar'
+import ActionBar from 'components/ActionBar'
 
 export class Search extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {

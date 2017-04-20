@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { loadPostsByTag, loadMorePosts } from '../../store/posts/actions';
 import Post from 'components/Post';
-import ActionBar from 'containers/ActionBar'
+import ActionBar from 'components/ActionBar'
 import LoadMoreButton from 'components/LoadMoreButton'
 
 export class PostsByTag extends React.Component { // eslint-disable-line react/prefer-stateless-function

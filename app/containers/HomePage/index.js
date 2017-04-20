@@ -19,7 +19,7 @@ import { loadPosts, loadMorePosts } from '../../store/posts/actions';
 import LoadMoreButton from 'components/LoadMoreButton';
 import HomeSplash from 'components/HomeSplash';
 import Post from 'components/Post';
-import ActionBar from 'containers/ActionBar';
+import ActionBar from 'components/ActionBar';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {

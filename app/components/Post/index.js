@@ -8,7 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router';
 // import { RaisedButton } from 'material-ui'
-import Button from 'components/Button'
+import { RaisedButton } from 'material-ui'
 
 class Post extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -27,7 +27,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
           <h2 dangerouslySetInnerHTML={{__html: title.rendered}} />
           <pre>{date}</pre>
           <div dangerouslySetInnerHTML={{__html: excerpt.rendered}} />
-          <Link to={'/blog/'+slug}><Button label="Read More" /></Link>
+          <Link to={'/blog/'+slug}><RaisedButton label="Read More" /></Link>
         </div>
       </Article>
     );

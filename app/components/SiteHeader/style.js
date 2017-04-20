@@ -3,6 +3,7 @@ import config from 'config';
 
 export default styled.header`
   position: fixed;
+  z-index: 100;
   width: 100%;
   background: ${config.primaryColor};
   a { 

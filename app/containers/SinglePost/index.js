@@ -10,7 +10,7 @@ import Helmet from 'react-helmet';
 import config from 'config';
 import Post from 'components/Post';
 import { loadPosts } from '../../store/posts/actions';
-import ActionBar from 'containers/ActionBar';
+import ActionBar from 'components/ActionBar';
 import FeaturedMedia from 'components/FeaturedMedia';
 import Tags from 'components/Tags';
 import Comments from 'containers/Comments';
