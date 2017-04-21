@@ -6,7 +6,6 @@
 
 import React from 'react';
 import CommentForm from './CommentForm';
-// import styled from 'styled-components';
 
 class Comments extends React.Component { // eslint-disable-line react/prefer-stateless-function
 

@@ -5,26 +5,24 @@
   z-index: 100;
   width: 100%;
   background: $primaryColor;
-  a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 17px 18px;
-    background: #f00;
-    transition: background-color 0.3s;
-    &:hover {
-      background: #f4a;
-    }
-  }
   ul {
     margin: 0;
     list-style: none;
+    float: right;
+    a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      line-height: 24px;
+      padding: 16px 18px;
+      background: $primaryColor;
+      transition: background-color 0.3s;
+      &:hover {
+        background: $primaryColorLight;
+      }
+    }
   }
   li {
     display: inline-block;
-  }
-  img {
-    width: 40px;
-    height: 40px;
   }
 }

@@ -5,25 +5,14 @@
 */
 
 import React from 'react';
-import styled from 'styled-components';
 import config from 'config'
+import './style.scss'
 
 function Button({ label }) {
-  const Button = styled.div`
-    display: inline-block;
-    cursor: pointer;
-    background: ${config.primaryColor};
-    color: #fff;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    &:hover {
-      background: ${config.primaryColorLight};
-    }
-  `
   return (
-    <Button>
+    <div className="Button">
       {label}
-    </Button>
+    </div>
   );
 }
 

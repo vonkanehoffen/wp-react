@@ -5,20 +5,16 @@
  */
 
 import React, { PropTypes } from 'react';
-import styled from 'styled-components';
+import './style.scss'
 
 export class ActionBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const Bar = styled.nav`
-      padding: 15px 0;
-    `
-
     return (
-      <Bar>
+      <nav className="ActionBar">
         <div className="container">
           {this.props.children}
         </div>
-      </Bar>
+      </nav>
     )
   }
 }

@@ -5,19 +5,14 @@
 */
 
 import React from 'react';
-import styled from 'styled-components';
+import './style.scss'
 
 
 function Error({ message }) {
-  const Error = styled.div`
-      background: #d00;
-      color: #fff;
-      padding: 10px;
-    `;
   return (
-    <Error>
+    <div className="Error">
       <b>Error:</b> {message}
-    </Error>
+    </div>
   );
 }
 

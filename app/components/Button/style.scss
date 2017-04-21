@@ -1,0 +1,12 @@
+@import "app/variables";
+.Button {
+  display: inline-block;
+  cursor: pointer;
+  background: $primaryColor;
+  color: #fff;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  &:hover {
+    background: $primaryColorLight;
+  }
+}

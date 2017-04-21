@@ -2,5 +2,8 @@
  * Variables - layout and branding
  */
 
-$primaryColor: #da002e;
-$primaryColorLight: lighten($primaryColor, 20%);
+// Colors from Material Design palette:
+// https://material.io/guidelines/style/color.html#color-color-palette
+
+$primaryColor: #F44336; // red 600
+$primaryColorLight: #D32F2F; // red 500

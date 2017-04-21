@@ -7,28 +7,23 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import styled from 'styled-components';
-
 import CircularProgress from 'material-ui/CircularProgress';
 import LogoImage from 'images/kc-white-500.svg'
 import Error from 'components/Error'
+import './style.scss'
 
 export class LogoLoader extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const Logo = styled.div`
-      float:left;
-    `
-
     const { loading, error } = this.props
     return (
-      <Logo>
+      <div id="logoLoader">
         {loading ?
           <CircularProgress color="#fff"/>
         :
           <Link to="/"><img src={LogoImage}/></Link>
         }
         {error && <Error message={error} /> }
-      </Logo>
+      </div>
     );
   }
 }
