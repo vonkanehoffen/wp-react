@@ -82,7 +82,7 @@ const render = (messages) => {
         </LanguageProvider>
       </MuiThemeProvider>
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('root')
   );
 };
 

@@ -14,6 +14,7 @@
 import React from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import SiteFooter from '../../components/SiteFooter';
+import './style.scss'
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -23,9 +24,12 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div>
+      <div id="App">
         <SiteHeader/>
-        {React.Children.toArray(this.props.children)}
+        <div className="spacer"></div>
+        <main id="siteContent">
+          {React.Children.toArray(this.props.children)}
+        </main>
         <SiteFooter/>
       </div>
     );

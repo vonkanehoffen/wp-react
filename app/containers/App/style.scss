@@ -1,0 +1,14 @@
+#root {
+  // React root element. #App sits inside.
+}
+#App {
+  // Sticky footer.
+  // Thanks http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  #siteContent {
+    flex: 1;
+  }
+
+}

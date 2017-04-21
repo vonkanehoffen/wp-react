@@ -4,20 +4,8 @@
 
 @import 'app/variables';
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
   font-family: Roboto, sans-serif;
-}
-
-#app {
-  background-color: #fff;
-  min-height: 100%;
-  min-width: 100%;
 }
 
 .container {
