@@ -1,0 +1,31 @@
+/**
+ * Global Styles
+ */
+
+@import 'app/variables';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+#app {
+  background-color: #fff;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+p {
+  font-family: Lora, serif;
+}

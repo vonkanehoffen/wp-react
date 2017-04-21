@@ -53,6 +53,10 @@ module.exports = (options) => ({
       test: /\.json$/,
       loader: 'json-loader',
     }, {
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
+    }, {
       test: /\.(mp4|webm)$/,
       loader: 'url-loader',
       query: {

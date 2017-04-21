@@ -1,31 +1,30 @@
-import styled from 'styled-components';
-import config from 'config';
+@import 'app/variables';
 
-export default styled.header`
+#siteHeader {
   position: fixed;
   z-index: 100;
   width: 100%;
-  background: ${config.primaryColor};
-  a { 
+  background: $primaryColor;
+  a {
     display: block;
     color: #fff;
     text-decoration: none;
     padding: 17px 18px;
-    background: ${config.primaryColor};
+    background: #f00;
     transition: background-color 0.3s;
     &:hover {
-      background: ${config.primaryColorLight};
+      background: #f4a;
     }
   }
   ul {
     margin: 0;
     list-style: none;
   }
-    li {
-      display: inline-block;
-    }
+  li {
+    display: inline-block;
+  }
   img {
     width: 40px;
     height: 40px;
   }
-`;
+}
