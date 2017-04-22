@@ -55,7 +55,16 @@ module.exports = (options) => ({
     }, {
       test: /\.scss$/,
       exclude: /node_modules/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader']
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            includePaths: [path.resolve(process.cwd(), 'app')]
+          }
+        }
+      ]
     }, {
       test: /\.(mp4|webm)$/,
       loader: 'url-loader',
