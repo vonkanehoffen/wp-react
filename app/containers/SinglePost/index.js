@@ -45,7 +45,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         :
           <div className="spacer" />
         }
-        {tags && <Tags terms={tags}/>}
+
         {post && <Post post={post}/>}
         {post && <Comments post={post} />}
         <ActionBar />

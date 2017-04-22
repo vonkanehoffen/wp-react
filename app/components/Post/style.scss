@@ -1,6 +1,12 @@
-.Article {
+.Post {
   margin-bottom: 20px;
-  h2 {
-    font-size: 40px;
+  .body {
+    display: flex;
   }
+    .meta {
+      width: 33.3%;
+    }
+    .content {
+      flex: 1;
+    }
 }
