@@ -278,6 +278,7 @@
     "imports-loader": "0.6.5",
     "jest-cli": "18.0.0",
     "lint-staged": "3.2.1",
+    "modularscale-sass": "^3.0.2",
     "ngrok": "2.2.4",
     "node-plop": "0.5.4",
     "node-sass": "^4.5.2",

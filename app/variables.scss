@@ -2,8 +2,31 @@
  * Variables - layout and branding
  */
 
-// Colors from Material Design palette:
-// https://material.io/guidelines/style/color.html#color-color-palette
+/**
+ * Colors
+ * From Material Design palette:
+ * https://material.io/guidelines/style/color.html#color-color-palette
+ */
 
 $primaryColor: #F44336; // red 600
 $primaryColorLight: #D32F2F; // red 500
+
+/**
+ * Text
+ */
+
+$font-sans: 'Roboto', sans-serif;
+$font-serif: 'Lora', serif;
+
+@import '~modularscale-sass/stylesheets/modularscale';
+$modularscale: (
+  base: 1em,
+  ratio: $augmented-fourth
+);
+
+/**
+ * Breakpoints
+ */
+
+$bp-desktop: 768px;
+
