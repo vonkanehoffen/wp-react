@@ -1,3 +1,5 @@
+@import "variables";
+
 .Post {
   margin-bottom: 20px;
   .body {
@@ -9,4 +11,9 @@
     .content {
       flex: 1;
     }
+  .divider {
+    margin: 30px 0;
+    height: 15px;
+    background: $primaryColor;
+  }
 }

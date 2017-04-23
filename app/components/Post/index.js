@@ -12,6 +12,7 @@ import Tags from 'components/Tags'
 import config from 'config'
 import MoreIcon from 'material-ui/svg-icons/navigation/more-horiz'
 import './style.scss'
+import lineMask from './line-diagonal-mask.png'
 
 
 class Post extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -40,6 +41,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
             </div>
           </div>
         </div>
+        <div className="divider" style={{backgroundImage: 'url('+lineMask+')' }}/>
       </article>
     );
   }
