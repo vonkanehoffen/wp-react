@@ -7,6 +7,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Button from 'components/Button'
+import DateMeta from 'components/DateMeta'
 import Tags from 'components/Tags'
 import config from 'config'
 import MoreIcon from 'material-ui/svg-icons/navigation/more-horiz'
@@ -26,7 +27,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
           <h2 dangerouslySetInnerHTML={{__html: title.rendered}} />
           <div className="body">
             <div className="meta">
-              <pre>{date}</pre>
+              <DateMeta date={date} />
               {tags && <Tags terms={tags}/>}
             </div>
             <div className="content">
