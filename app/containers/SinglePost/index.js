@@ -11,9 +11,6 @@ import config from 'config';
 import Post from 'components/Post';
 import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'components/ActionBar';
-import FeaturedMedia from 'components/FeaturedMedia';
-import Tags from 'components/Tags';
-import Comments from 'containers/Comments';
 import './style.scss'
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -40,14 +37,7 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
             { name: 'description', content: title },
           ]}
         />
-        {featuredMedia ?
-          <FeaturedMedia media={featuredMedia} />
-        :
-          <div className="spacer" />
-        }
-
-        {post && <Post post={post}/>}
-        {post && <Comments post={post} />}
+        {post && <Post post={post} expanded={true} />}
         <ActionBar />
       </div>
     );
