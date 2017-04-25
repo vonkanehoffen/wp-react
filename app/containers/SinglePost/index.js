@@ -39,7 +39,9 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         />
         {post && <Post post={post} expanded={true} />}
         <ActionBar />
-        <h3>Recent Posts</h3>
+        <div className="container">
+          <h3>Recent Posts</h3>
+        </div>
         <RecentPosts/>
       </div>
     );

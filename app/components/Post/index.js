@@ -67,7 +67,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
             <div className="content">
               {expanded ?
                 <div>
-                  <div dangerouslySetInnerHTML={{__html: content.rendered}}></div>
+                  <div dangerouslySetInnerHTML={{__html: content.rendered}} className="postContent"></div>
                   <Comments post={post} />
                 </div>
               :

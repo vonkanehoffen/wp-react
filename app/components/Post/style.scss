@@ -1,11 +1,11 @@
 @import "variables";
 
 .Post {
-  margin-bottom: 20px;
+  margin-top: $gutter;
   .featuredMedia {
     position: relative;
     padding-top: 100px;
-    margin-bottom: 15px;
+    margin: -$gutter 0 $gutter;
     overflow: hidden;
     background-size: cover;
     .overlay {
@@ -14,7 +14,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(120,0,0,0.4);
+      background: linear-gradient(rgba(80,0,0,0),rgba(80,0,0,0.5));
     }
     h2 {
       position: relative;
@@ -27,17 +27,35 @@
     color: inherit;
   }
   .body {
-    display: flex;
   }
     .meta {
-      width: 33.3%;
+      width: 100%;
+      border-top: 4px solid #f00;
+      padding-top: 30px;
+      margin: 30px 30px 30px 0;
     }
     .content {
       flex: 1;
     }
+    .postContent {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   .divider {
-    margin: 30px 0;
+    margin: $gutter 0 0;
     height: 15px;
     background: $primaryColor;
+  }
+
+  @include desktop {
+    .body {
+      display: flex;
+    }
+    .meta {
+      width: 200px;
+      margin-right: 30px;
+    }
   }
 }

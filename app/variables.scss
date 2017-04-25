@@ -25,8 +25,18 @@ $modularscale: (
 );
 
 /**
+ * Layout
+ */
+
+$gutter: 30px;
+
+/**
  * Breakpoints
  */
 
-$bp-desktop: 768px;
+@mixin desktop {
+  @media (min-width: 800px) {
+    @content
+  }
+}
 
