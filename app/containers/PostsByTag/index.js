@@ -30,7 +30,7 @@ export class PostsByTag extends React.Component { // eslint-disable-line react/p
         />
         <h2>Posts by tag: {params.slug}</h2>
         {posts.map((post, i) => {
-          return <Post post={post} key={i} />;
+          return <Post post={post} expanded={false} key={i} />;
         })}
         <ActionBar>
           <LoadMoreButton onClick={onLoadMore} />

@@ -28,7 +28,7 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
         <h2>This is search.</h2>
         <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" autoFocus />
         {results.map((post, i) => {
-          return <Post post={post} key={i} />;
+          return <Post post={post} expanded={false} key={i} />;
         })}
         <ActionBar/>
       </div>

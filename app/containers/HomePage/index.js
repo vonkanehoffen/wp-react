@@ -14,21 +14,15 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
 import config from 'config'
-import messages from './messages';
-import { loadPosts, loadMorePosts } from '../../store/posts/actions';
-import LoadMoreButton from 'components/LoadMoreButton';
-import HomeSplash from 'components/HomeSplash';
-import Post from 'components/Post';
-import ActionBar from 'components/ActionBar';
+import HomeSplash from 'components/HomeSplash'
+import RecentPosts from 'containers/RecentPosts'
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  componentDidMount() {
-    this.props.onLoadPosts()
-  }
+
   render() {
-    const { posts, onLoadMore } = this.props;
+
     return (
-      <div>
+      <div className="HomePage">
         <Helmet
           title={`Home - ${config.blogTitle}`}
           meta={[
@@ -36,33 +30,19 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
           ]}
         />
         <HomeSplash/>
-        {posts.map((post, i) => {
-          return <Post post={post} key={i} />;
-        })}
-        <ActionBar>
-          <LoadMoreButton onClick={onLoadMore} />
-        </ActionBar>
+        <RecentPosts/>
       </div>
     );
   }
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    onLoadPosts: () => dispatch(loadPosts({ slug: false, search: false, page: 1 })),
-    onLoadMore: () => dispatch(loadMorePosts()),
-  };
-}
+
 
 // const mapStateToProps = createStructuredSelector({
 //   posts: state.posts
 // });
-const mapStateToProps = (state) => {
-  return {
-    posts: state.posts.posts
-  }
-}
+
 
 // Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage
 

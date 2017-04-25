@@ -32,6 +32,7 @@ const initialState = {
   posts: [],
   fetchArgs: {
     page: 1,
+    slug: false,
     search: '',
     _embed: true,
   },
@@ -50,6 +51,7 @@ function postsReducer(state = initialState, action) {
       return u({
         loading: true,
         fetchArgs: {
+          slug: false,
           page: state.fetchArgs.page + 1
         }
       }, state)

@@ -11,6 +11,7 @@ import config from 'config';
 import Post from 'components/Post';
 import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'components/ActionBar';
+import RecentPosts from 'containers/RecentPosts'
 import './style.scss'
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -39,6 +40,8 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
         />
         {post && <Post post={post} expanded={true} />}
         <ActionBar />
+        <h3>Recent Posts</h3>
+        <RecentPosts/>
       </div>
     );
   }

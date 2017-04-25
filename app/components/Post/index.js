@@ -42,7 +42,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
         {featuredMedia && <FeaturedMedia media={featuredMedia} />}
         <div className="container">
           <h2>
-            <Link to={'/blog/'+slug} title="Read More">
+            <Link to={'/blog/'+slug}>
               <div dangerouslySetInnerHTML={{__html: title.rendered}}></div>
             </Link>
           </h2>
@@ -60,11 +60,12 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
               :
                 <div>
                   <div dangerouslySetInnerHTML={{__html: excerpt.rendered}}></div>
-                  <MoreIcon
-                    color={config.primaryColor}
-                    style={{width: '40px', height: '40px'}}
-                    onClick={this.toggleExpanded}
-                  />
+                  <Link to={'/blog/'+slug} title="Read More">
+                    <MoreIcon
+                      color={config.primaryColor}
+                      style={{width: '40px', height: '40px'}}
+                    />
+                  </Link>
                 </div>
               }
 

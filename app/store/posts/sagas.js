@@ -58,8 +58,8 @@ export function* postsData() {
   // Watches for LOAD_POSTS actions and calls getPosts when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
-  yield takeLatest([LOAD_POSTS, LOAD_MORE_POSTS], getPosts);
-  yield takeLatest(LOAD_POSTS_BY_TAG, getPostsByTag)
+  yield takeEvery([LOAD_POSTS, LOAD_MORE_POSTS], getPosts);
+  yield takeEvery(LOAD_POSTS_BY_TAG, getPostsByTag)
 
   // Suspend execution until location changes
   // yield take(LOCATION_CHANGE);
