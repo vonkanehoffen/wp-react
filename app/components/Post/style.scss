@@ -2,6 +2,10 @@
 
 .Post {
   margin-bottom: 20px;
+  h2 a {
+    text-decoration: none;
+    color: inherit;
+  }
   .body {
     display: flex;
   }

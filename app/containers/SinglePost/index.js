@@ -12,7 +12,6 @@ import Post from 'components/Post';
 import { loadPosts } from '../../store/posts/actions';
 import ActionBar from 'components/ActionBar';
 import RecentPosts from 'containers/RecentPosts'
-import './style.scss'
 
 export class SinglePost extends React.Component { // eslint-disable-line react/prefer-stateless-function
 

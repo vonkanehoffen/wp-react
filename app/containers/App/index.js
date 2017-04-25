@@ -26,7 +26,6 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     return (
       <div id="App">
         <SiteHeader/>
-        <div className="spacer"></div>
         <main id="siteContent">
           {React.Children.toArray(this.props.children)}
         </main>

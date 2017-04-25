@@ -42,9 +42,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
         {featuredMedia && <FeaturedMedia media={featuredMedia} />}
         <div className="container">
           <h2>
-            <Link to={'/blog/'+slug}>
-              <div dangerouslySetInnerHTML={{__html: title.rendered}}></div>
-            </Link>
+            <Link to={'/blog/'+slug} dangerouslySetInnerHTML={{__html: title.rendered}} />
           </h2>
           <div className="body">
             <div className="meta">
