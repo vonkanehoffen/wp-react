@@ -31,19 +31,34 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
 
   render() {
     const post = this.props.post
-    const { slug, title, content, excerpt, date } = post;
+    const { slug, content, excerpt, date } = post;
     const featuredMedia = _.get(post, ['_embedded', 'wp:featuredmedia', '0'], false)
     const tags = _.get(post, ['_embedded', 'wp:term', '1'], false) // 1 is always tags. 0 is category which we won't us yet.
 
     const expanded = this.state.expanded
 
+    const title =
+      <h2>
+        <Link to={'/blog/'+slug} dangerouslySetInnerHTML={{__html: post.title.rendered}} />
+      </h2>
+
     return (
       <article className="Post">
-        {featuredMedia && <FeaturedMedia media={featuredMedia} />}
+        {featuredMedia ?
+        <div
+          className="featuredMedia"
+          style={{backgroundImage: `url(${featuredMedia.media_details.sizes.large.source_url})`}}>
+          <div className="overlay"></div>
+          <div className="container">
+            {title}
+          </div>
+        </div>
+          :
         <div className="container">
-          <h2>
-            <Link to={'/blog/'+slug} dangerouslySetInnerHTML={{__html: title.rendered}} />
-          </h2>
+          {title}
+        </div>
+        }
+        <div className="container">
           <div className="body">
             <div className="meta">
               <DateMeta date={date} />

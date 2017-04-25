@@ -2,6 +2,26 @@
 
 .Post {
   margin-bottom: 20px;
+  .featuredMedia {
+    position: relative;
+    padding-top: 100px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-size: cover;
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(120,0,0,0.4);
+    }
+    h2 {
+      position: relative;
+      color: white;
+    }
+  }
+
   h2 a {
     text-decoration: none;
     color: inherit;
