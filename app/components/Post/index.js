@@ -6,10 +6,9 @@
 
 import React from 'react'
 import { Link } from 'react-router'
-import Button from 'components/Button'
 import DateMeta from 'components/DateMeta'
 import Tags from 'components/Tags'
-import FeaturedMedia from 'components/FeaturedMedia';
+import CommentCount from 'components/CommentCount'
 import Comments from 'containers/Comments';
 import config from 'config'
 import MoreIcon from 'material-ui/svg-icons/navigation/more-horiz'
@@ -63,6 +62,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
             <div className="meta">
               <DateMeta date={date} />
               {tags && <Tags terms={tags}/>}
+              <CommentCount post={post}/>
             </div>
             <div className="content">
               {expanded ?
