@@ -2,11 +2,15 @@
 .Button {
   display: inline-block;
   cursor: pointer;
-  background: $primaryColor;
-  color: #fff;
-  padding: 10px 15px;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
+  padding: 6px 12px;
   transition: background-color 0.3s;
   &:hover {
     background: $primaryColorLight;
+  }
+  &.primary {
+    color: white;
+    background: $primaryColor;
   }
 }

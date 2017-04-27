@@ -1,0 +1,35 @@
+@import "variables";
+.Comments {
+  .comment {
+    margin-left: $gutter;
+    padding: $gutter 0;
+    border-top: 1px solid #999;
+  }
+  &:first-child .comment {
+    margin-left: 0;
+    background: #0f0;
+  }
+  .content {
+
+  }
+  .commentMeta {
+    margin-bottom: $gutter;
+    img {
+      float: left;
+      padding-right: $gutter/2;
+      border-radius: 50%;
+    }
+    font-size: ms(-1);
+    font-weight: bold;
+    .author {
+
+    }
+    .date {
+      color: #999;
+    }
+  }
+}
+
+.CommentForm {
+  padding: $gutter 0;
+}

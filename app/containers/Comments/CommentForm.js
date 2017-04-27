@@ -4,7 +4,8 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { TextField, RaisedButton } from 'material-ui'
+import { TextField } from 'material-ui'
+import Button from 'components/Button'
 import { saveComment } from 'store/posts/actions'
 
 class CommentForm extends React.Component {
@@ -48,7 +49,7 @@ class CommentForm extends React.Component {
   render () {
     const { postId, parentId } = this.props
     return (
-      <div>
+      <div className="CommentForm">
         {this.state.formOpen ?
           <form onSubmit={this.handleSubmit}>
             <p>Leave a comment:</p>
@@ -58,11 +59,11 @@ class CommentForm extends React.Component {
                        floatingLabelText="Email" type="email"/>
             <TextField id="content" value={this.state.content} onChange={this.handleChange} floatingLabelText="Comment"
                        multiLine={true}/>
-            <RaisedButton onClick={this.handleSubmit} label="Post" primary={true}/>
-            <RaisedButton onClick={this.closeForm} label="Cancel" />
+            <Button onClick={this.handleSubmit} label="Post" primary={true}/>
+            <Button onClick={this.closeForm} label="Cancel" />
           </form>
           :
-          <RaisedButton onClick={this.openForm} label="Leave a comment" primary={true}/>
+          <Button onClick={this.openForm} label="Leave a comment" primary={true}/>
         }
       </div>
     )

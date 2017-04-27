@@ -66,10 +66,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
             </div>
             <div className="content">
               {expanded ?
-                <div>
-                  <div dangerouslySetInnerHTML={{__html: content.rendered}} className="postContent"></div>
-                  <Comments post={post} />
-                </div>
+                <div dangerouslySetInnerHTML={{__html: content.rendered}} className="postContent"></div>
               :
                 <div>
                   <div dangerouslySetInnerHTML={{__html: excerpt.rendered}}></div>
@@ -81,9 +78,9 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
                   </Link>
                 </div>
               }
-
             </div>
           </div>
+          {expanded && <Comments post={post} />}
         </div>
         <div className="divider" style={{backgroundImage: 'url('+lineMask+')' }}/>
       </article>
