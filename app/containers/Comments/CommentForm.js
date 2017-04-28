@@ -63,7 +63,7 @@ class CommentForm extends React.Component {
             <Button onClick={this.closeForm} label="Cancel" />
           </form>
           :
-          <Button onClick={this.openForm} label="Leave a comment" primary={true}/>
+          <Button onClick={this.openForm} label={parentId > 0 ? 'Reply' : 'Leave a comment'} primary={true}/>
         }
       </div>
     )

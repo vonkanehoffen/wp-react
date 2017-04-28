@@ -2,4 +2,9 @@
 
 #SiteFooter {
   background: $primaryColor;
+  padding:$gutter 0;
+  color: #fff;
+  a {
+    color: inherit;
+  }
 }

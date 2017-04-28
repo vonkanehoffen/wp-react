@@ -4,6 +4,9 @@
     margin-left: $gutter;
     padding: $gutter 0;
     border-top: 1px solid #999;
+    &.rootComment {
+      margin-left: 0;
+    }
   }
   &:first-child .comment {
     margin-left: 0;

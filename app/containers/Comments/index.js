@@ -15,7 +15,7 @@ class Comments extends React.Component { // eslint-disable-line react/prefer-sta
   printComments(rootComment, comments) {
     const childComments = comments.filter(c => c.parent === rootComment.id)
     return (
-      <div key={rootComment.id} className="comment">
+      <div key={rootComment.id} className={'comment' + (rootComment.parent === 0 ? ' rootComment' : '')}>
         {rootComment.status && <div>Status: {rootComment.status}</div>}
         <div className="commentMeta">
           <img src={rootComment.author_avatar_urls['48']} alt="" />

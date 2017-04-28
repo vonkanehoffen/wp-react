@@ -8,9 +8,12 @@ import React from 'react';
 import config from 'config'
 import './style.scss'
 
-function Button({ label, primary, onClick }) {
+function Button({ label, primary, onClick, disabled }) {
+  const classes = 'Button' +
+    (primary ? ' primary' : '') +
+    (disabled ? ' disabled' : '')
   return (
-    <div className={'Button' + (primary ? ' primary': '')} onClick={onClick}>
+    <div className={classes} onClick={disabled ? false : onClick}>
       {label}
     </div>
   );

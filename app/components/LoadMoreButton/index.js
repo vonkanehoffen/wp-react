@@ -6,14 +6,14 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { RaisedButton } from 'material-ui'
+import Button from 'components/Button'
 
 
 class LoadMoreButton extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const { onClick, loading } = this.props
     return (
-      <RaisedButton onClick={onClick} disabled={loading} label="Load More" />
+      <Button onClick={onClick} disabled={loading} label="Load More" />
     );
   }
 }

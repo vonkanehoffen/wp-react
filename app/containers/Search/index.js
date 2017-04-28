@@ -18,19 +18,21 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
     const { fetchArgs, results, onSearchInput } = this.props;
 
     return (
-      <div>
+      <div className="Search">
         <Helmet
           title="Search"
           meta={[
             { name: 'description', content: 'Description of Search' },
           ]}
         />
-        <h2>This is search.</h2>
-        <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" autoFocus />
-        {results.map((post, i) => {
-          return <Post post={post} expanded={false} key={i} />;
-        })}
-        <ActionBar/>
+        <div className="container">
+          <h2>Search</h2>
+          <TextField value={fetchArgs.search || ''} onChange={onSearchInput} name="search" autoFocus />
+          {results.map((post, i) => {
+            return <Post post={post} expanded={false} key={i} />;
+          })}
+          <ActionBar/>
+        </div>
       </div>
     );
   }
