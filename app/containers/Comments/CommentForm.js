@@ -2,9 +2,9 @@
  * Comment Form
  */
 
-import React from 'react';
-import { connect } from 'react-redux';
-import { TextField } from 'material-ui'
+import React from 'react'
+import { connect } from 'react-redux'
+import TextField from 'components/TextField'
 import Button from 'components/Button'
 import { saveComment } from 'store/posts/actions'
 
@@ -54,10 +54,10 @@ class CommentForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <p>Leave a comment:</p>
             <TextField id="author_name" value={this.state.author_name} onChange={this.handleChange}
-                       floatingLabelText="Your Name"/>
+                       placeholder="Your Name"/>
             <TextField id="author_email" value={this.state.author_email} onChange={this.handleChange}
-                       floatingLabelText="Email" type="email"/>
-            <TextField id="content" value={this.state.content} onChange={this.handleChange} floatingLabelText="Comment"
+                       placeholder="Email" type="email"/>
+            <TextField id="content" value={this.state.content} onChange={this.handleChange} placeholder="Comment"
                        multiLine={true}/>
             <Button onClick={this.handleSubmit} label="Post" primary={true}/>
             <Button onClick={this.closeForm} label="Cancel" />
