@@ -15,6 +15,7 @@ import MoreIcon from 'material-ui/svg-icons/navigation/more-horiz'
 import './style.scss'
 import lineMask from './line-diagonal-mask.png'
 
+// TODO: Use https://highlightjs.org/ for code highlighting. Prebuilt.
 
 class Post extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {

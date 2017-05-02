@@ -5,6 +5,8 @@
   border: 1px solid $primaryColor;
   color: $primaryColor;
   padding: 6px 12px;
+  margin: 0 10px 10px 0;
+  border-radius: 4px;
   transition: background-color 0.3s;
   &:hover {
     background: lighten($primaryColor, 30%);

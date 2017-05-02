@@ -34,6 +34,7 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit = () => {
+    // TODO: Sort duplicated IDs - doesn't work with `name` attr for some reason
     const { postId, parentId, dispatch } = this.props
     const { author_name, author_email, content } = this.state
     dispatch(saveComment({
@@ -52,15 +53,22 @@ class CommentForm extends React.Component {
       <div className="CommentForm">
         {this.state.formOpen ?
           <form onSubmit={this.handleSubmit}>
-            <p>Leave a comment:</p>
-            <TextField id="author_name" value={this.state.author_name} onChange={this.handleChange}
-                       placeholder="Your Name"/>
-            <TextField id="author_email" value={this.state.author_email} onChange={this.handleChange}
-                       placeholder="Email" type="email"/>
-            <TextField id="content" value={this.state.content} onChange={this.handleChange} placeholder="Comment"
-                       multiLine={true}/>
-            <Button onClick={this.handleSubmit} label="Post" primary={true}/>
-            <Button onClick={this.closeForm} label="Cancel" />
+            <h4>Leave a comment:</h4>
+            <div className="flex-row">
+              <div className="col">
+                <TextField id="author_name" value={this.state.author_name} onChange={this.handleChange} placeholder="Your Name"/>
+              </div>
+              <div className="col">
+                <TextField id="author_email" value={this.state.author_email} onChange={this.handleChange} placeholder="Email" type="email"/>
+              </div>
+            </div>
+            <div className="flex-row">
+                <TextField id="content" value={this.state.content} onChange={this.handleChange} placeholder="Comment" multiLine={true}/>
+            </div>
+            <div className="flex-row">
+              <Button onClick={this.handleSubmit} label="Post" primary={true}/>
+              <Button onClick={this.closeForm} label="Cancel" />
+            </div>
           </form>
           :
           <Button onClick={this.openForm} label={parentId > 0 ? 'Reply' : 'Leave a comment'} primary={true}/>
