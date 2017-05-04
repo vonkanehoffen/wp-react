@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router'
 import config from 'config'
 import { loadTags } from '../../store/tags/actions';
 
@@ -19,6 +20,13 @@ class TagsList extends React.Component {
     return (
       <div className="TagsList">
         <pre>{JSON.stringify(tags)}</pre>
+        {tags.tags.length > 0 &&
+        <ul>
+          {tags.tags.map((tag, i) =>
+            <li key={i}><Link to={'/tag/'+tag.slug}>{tag.name}</Link></li>
+          )}
+        </ul>
+        }
       </div>
     )
   }
