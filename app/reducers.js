@@ -7,6 +7,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import postsReducer from 'store/posts/reducer';
+import tagsReducer from 'store/tags/reducer'
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 
@@ -17,6 +18,7 @@ export default function createReducer(asyncReducers) {
   return combineReducers({
     routing: routerReducer,
     posts: postsReducer,
+    tags: tagsReducer,
     language: languageProviderReducer,
     ...asyncReducers,
   });

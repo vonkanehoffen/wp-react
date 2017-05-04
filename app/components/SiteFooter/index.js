@@ -6,6 +6,7 @@
 
 import React from 'react';
 import config from 'config';
+import TagsList from 'containers/TagsList'
 import './style.scss'
 
 
@@ -13,6 +14,7 @@ function SiteFooter() {
   return (
     <footer id="SiteFooter">
       <div className="container">
+        <TagsList/>
         <div className="copyright">
           &copy; Kane Clover 2017. All Rights Reserved.<br />
           <a href="https://github.com/vonkanehoffen/wp-react">Source Code</a>
