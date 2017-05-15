@@ -33,10 +33,20 @@
       border-top: 2px solid #f00;
       padding-top: 30px;
       margin: 30px 30px 30px 0;
+      .material-icons {
+        color: $primaryColor;
+        margin-right: 10px;
+        vertical-align: middle;
+
+      }
     }
     .content {
       flex: 1;
     }
+      .material-icons.more {
+        font-size: 40px;
+        color: $primaryColor;
+      }
     .postContent {
       img {
         width: 100%;

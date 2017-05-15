@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import CommentIcon from 'material-ui/svg-icons/communication/comment'
 import config from 'config'
 import './style.scss'
 
@@ -20,7 +19,7 @@ function CommentCount({post}) {
 
   return (
     <div className="CommentCount">
-      <CommentIcon color={config.primaryColor} style={{marginRight: '10px'}} />
+      <i className="material-icons">comment</i>
       {message}
     </div>
   );

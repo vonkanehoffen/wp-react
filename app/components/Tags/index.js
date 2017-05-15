@@ -6,8 +6,6 @@
 
 import React from 'react';
 import { Link } from 'react-router'
-import config from 'config'
-import TagIcon from 'material-ui/svg-icons/action/label'
 import './styles.scss'
 
 
@@ -17,7 +15,7 @@ function Tags({ terms }) {
       {terms.map((term, i) =>
         <li key={i}>
           <Link to={`/tag/${term.slug}/`}>
-            <TagIcon color={config.primaryColor} style={{marginRight: '10px'}} />
+            <i className="material-icons">label</i>
             {term.name}
           </Link>
         </li>

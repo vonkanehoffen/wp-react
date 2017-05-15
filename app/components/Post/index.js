@@ -9,9 +9,7 @@ import { Link } from 'react-router'
 import DateMeta from 'components/DateMeta'
 import Tags from 'components/Tags'
 import CommentCount from 'components/CommentCount'
-import Comments from 'containers/Comments';
-import config from 'config'
-import MoreIcon from 'material-ui/svg-icons/navigation/more-horiz'
+import Comments from 'containers/Comments'
 import './style.scss'
 import lineMask from './line-diagonal-mask.png'
 
@@ -72,10 +70,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
                 <div>
                   <div dangerouslySetInnerHTML={{__html: excerpt.rendered}}></div>
                   <Link to={'/blog/'+slug} title="Read More">
-                    <MoreIcon
-                      color={config.primaryColor}
-                      style={{width: '40px', height: '40px'}}
-                    />
+                    <i className="material-icons more">more_horiz</i>
                   </Link>
                 </div>
               }

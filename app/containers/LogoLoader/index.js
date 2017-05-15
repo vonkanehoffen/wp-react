@@ -7,7 +7,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import CircularProgress from 'material-ui/CircularProgress';
+import LoadingIndicator from 'components/LoadingIndicator'
 import LogoImage from 'images/kc-white-500.svg'
 import Error from 'components/Error'
 import './style.scss'
@@ -18,7 +18,7 @@ export class LogoLoader extends React.Component { // eslint-disable-line react/p
     return (
       <div id="logoLoader">
         {loading ?
-          <CircularProgress color="#fff"/>
+          <LoadingIndicator/>
         :
           <Link to="/"><img src={LogoImage}/></Link>
         }
