@@ -14,16 +14,27 @@ function SiteFooter() {
   return (
     <footer id="SiteFooter">
       <div className="container">
-        <TagsList/>
-        <div className="copyright">
-          &copy; Kane Clover 2017. All Rights Reserved.<br />
-          <a href="https://github.com/vonkanehoffen/wp-react">Source Code</a>
+        <div className="flex-row">
+          <div className="col">
+            <h4>Hello.</h4>
+            <div className="social">
+              <a href="https://github.com/vonkanehoffen">Github</a>
+              <a href="https://twitter.com/k_a_n__e">Twitter</a>
+              <a href="https://www.linkedin.com/in/kane-clover-62b43b1b/">LinkedIn</a>
+            </div>
+            <div className="copyright">
+              <p>All content, code and design by Kane Clover 2017.</p>
+              <p><small><a href="https://github.com/vonkanehoffen/wp-react">Source Code</a> licensed under <a href="https://choosealicense.com/licenses/gpl-3.0/">GNU GPLv3</a>.<br />
+                Content licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></small></p>
+            </div>
+          </div>
+          <div className="col">
+            <h4>Tags</h4>
+            <TagsList/>
+          </div>
         </div>
-        <div className="social">
-          <a href="https://github.com/vonkanehoffen">Github</a>
-          <a href="https://twitter.com/k_a_n__e">Twitter</a>
-          <a href="https://www.linkedin.com/in/kane-clover-62b43b1b/">LinkedIn</a>
-        </div>
+
+
         
       </div>
     </footer>

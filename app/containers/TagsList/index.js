@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router'
 import config from 'config'
 import { loadTags } from '../../store/tags/actions';
+import './style.scss'
 
 class TagsList extends React.Component {
   componentDidMount() {
@@ -18,16 +19,11 @@ class TagsList extends React.Component {
   render() {
     const { tags } = this.props
     return (
-      <div className="TagsList">
-        <pre>{JSON.stringify(tags)}</pre>
-        {tags.tags.length > 0 &&
-        <ul>
-          {tags.tags.map((tag, i) =>
-            <li key={i}><Link to={'/tag/'+tag.slug}>{tag.name}</Link></li>
-          )}
-        </ul>
-        }
-      </div>
+      <ul className="TagsList">
+        {tags.tags.length > 0 && tags.tags.map((tag, i) =>
+          <li key={i}><Link to={'/tag/'+tag.slug}>{tag.name}</Link></li>
+        )}
+      </ul>
     )
   }
 }

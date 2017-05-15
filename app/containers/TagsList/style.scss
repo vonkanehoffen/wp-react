@@ -1,0 +1,21 @@
+@import "variables";
+.TagsList {
+  list-style: none;
+  padding: 0;
+  font-size: ms(-1);
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    margin: 3px;
+    padding: 3px 6px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    &:hover {
+      background: #fff;
+      color: $primaryColor !important;
+    }
+  }
+}

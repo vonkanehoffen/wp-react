@@ -6,7 +6,7 @@ import request from 'utils/request';
 
 export function* getTags() {
   try {
-    const tags = yield call(request, config.apiRoot + '/tags', { orderby: 'count', order: 'desc' })
+    const tags = yield call(request, config.apiRoot + '/tags', { orderby: 'count', order: 'desc', per_page: '20' })
     yield put(tagsLoaded(tags));
 
   } catch (err) {

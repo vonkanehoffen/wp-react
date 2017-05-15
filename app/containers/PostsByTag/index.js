@@ -28,7 +28,7 @@ export class PostsByTag extends React.Component { // eslint-disable-line react/p
             { name: 'description', content: 'Description of PostsByTag' },
           ]}
         />
-        <h2>Posts by tag: {params.slug}</h2>
+        <h3>Posts by tag: {params.slug}</h3>
         {posts.map((post, i) => {
           return <Post post={post} expanded={false} key={i} />;
         })}
