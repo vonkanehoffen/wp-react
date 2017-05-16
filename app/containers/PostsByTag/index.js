@@ -23,9 +23,9 @@ export class PostsByTag extends React.Component { // eslint-disable-line react/p
     return (
       <div>
         <Helmet
-          title="PostsByTag"
+          title={'Tag: '+params.slug}
           meta={[
-            { name: 'description', content: 'Description of PostsByTag' },
+            { name: 'description', content: 'Posts by tag: '+params.slug },
           ]}
         />
         <h3>Posts by tag: {params.slug}</h3>

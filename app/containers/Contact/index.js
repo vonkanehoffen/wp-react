@@ -15,7 +15,7 @@ export class Contact extends React.Component { // eslint-disable-line react/pref
         <Helmet
           title="Contact"
           meta={[
-            { name: 'description', content: 'Description of Contact' },
+            { name: 'description', content: 'Get in touch!' },
           ]}
         />
         <h1>Contact me page</h1>

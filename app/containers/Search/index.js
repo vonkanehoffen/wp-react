@@ -22,7 +22,7 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
         <Helmet
           title="Search"
           meta={[
-            { name: 'description', content: 'Description of Search' },
+            { name: 'description', content: 'Search this blog' },
           ]}
         />
         <div className="container">
