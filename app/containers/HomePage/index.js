@@ -16,6 +16,7 @@ import Helmet from 'react-helmet';
 import config from 'config'
 import HomeSplash from 'components/HomeSplash'
 import RecentPosts from 'containers/RecentPosts'
+import './style.scss'
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -30,6 +31,9 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
           ]}
         />
         <HomeSplash/>
+        <div className="container blogTitle">
+          <h3><i className="material-icons">send</i> Blog</h3>
+        </div>
         <RecentPosts/>
       </div>
     );
