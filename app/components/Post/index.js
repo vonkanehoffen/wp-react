@@ -28,8 +28,8 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
   }
 
   render() {
-    const post = this.props.post
-    const { slug, content, excerpt, date } = post;
+    const { post, showFeaturedMedia } = this.props
+    const { slug, content, excerpt, date } = post
     const featuredMedia = _.get(post, ['_embedded', 'wp:featuredmedia', '0'], false)
     const tags = _.get(post, ['_embedded', 'wp:term', '1'], false) // 1 is always tags. 0 is category which we won't us yet.
 
@@ -42,7 +42,7 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
 
     return (
       <article className="Post">
-        {featuredMedia ?
+        {featuredMedia && showFeaturedMedia ?
         <div
           className="featuredMedia"
           style={{backgroundImage: `url(${featuredMedia.media_details.sizes.large.source_url})`}}>
