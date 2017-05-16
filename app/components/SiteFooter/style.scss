@@ -7,4 +7,12 @@
   a {
     color: inherit;
   }
+  .socialIcon {
+    width: 70px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    &:hover {
+      transform: translate(0, -5px);
+    }
+  }
 }

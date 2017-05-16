@@ -8,7 +8,9 @@ import React from 'react';
 import config from 'config';
 import TagsList from 'containers/TagsList'
 import './style.scss'
-
+import gitHubIcon from './images/github.svg'
+import twitterIcon from './images/twitter.svg'
+import linkedInIcon from './images/linkedin.svg'
 
 function SiteFooter() {
   return (
@@ -18,9 +20,9 @@ function SiteFooter() {
           <div className="col">
             <h4>Hello.</h4>
             <div className="social">
-              <a href="https://github.com/vonkanehoffen">Github</a>
-              <a href="https://twitter.com/k_a_n__e">Twitter</a>
-              <a href="https://www.linkedin.com/in/kane-clover-62b43b1b/">LinkedIn</a>
+              <a href="https://github.com/vonkanehoffen"><img src={gitHubIcon} alt="Github" className="socialIcon" /></a>
+              <a href="https://twitter.com/k_a_n__e"><img src={twitterIcon} alt="Twitter" className="socialIcon" /></a>
+              <a href="https://www.linkedin.com/in/kane-clover-62b43b1b/"><img src={linkedInIcon} alt="LinkedIn" className="socialIcon" /></a>
             </div>
             <div className="copyright">
               <p>All content, code and design by Kane Clover 2017.</p>
