@@ -71,7 +71,7 @@ class CommentForm extends React.Component {
             </div>
           </form>
           :
-          <Button onClick={this.openForm} label={parentId > 0 ? 'Reply' : 'Leave a comment'} primary={true}/>
+          <Button onClick={this.openForm} label={parentId > 0 ? 'Reply' : 'Leave a comment'} icon="comment" primary={true}/>
         }
       </div>
     )

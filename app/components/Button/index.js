@@ -8,12 +8,13 @@ import React from 'react';
 import config from 'config'
 import './style.scss'
 
-function Button({ label, primary, onClick, disabled }) {
+function Button({ label, icon, primary, onClick, disabled }) {
   const classes = 'Button' +
     (primary ? ' primary' : '') +
     (disabled ? ' disabled' : '')
   return (
     <div className={classes} onClick={disabled ? false : onClick}>
+      {icon && <i className="material-icons">{icon}</i>}
       {label}
     </div>
   );

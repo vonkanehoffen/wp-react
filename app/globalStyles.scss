@@ -12,26 +12,27 @@ html {
 }
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: $font-serif;
   font-size: 1em;
 }
 
 p {
-  font-family: Lora, serif;
+
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-family: $font-sans;
   margin: 1em 0 0.5em;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   clear: both;
 }
 
-h1 { font-size: ms(4); font-weight: 100; }
+h1 { font-size: ms(4); }
 h2 { font-size: ms(3); }
-h3 { font-size: ms(2); font-weight: 100;}
+h3 { font-size: ms(2); }
 h4 { font-size: ms(1); }
+h5 { font-size: ms(0); }
 small { font-size: ms(-1); }
 
 // Layout

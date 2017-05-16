@@ -1,6 +1,8 @@
 @import "app/variables";
 .Button {
   display: inline-block;
+  font-family: $font-sans;
+  font-weight: 500;
   cursor: pointer;
   border: 1px solid $primaryColor;
   color: $primaryColor;
@@ -24,5 +26,9 @@
     &.disabled {
       background: $grey;
     }
+  }
+  .material-icons {
+    vertical-align: middle;
+    margin-right: 10px;
   }
 }
