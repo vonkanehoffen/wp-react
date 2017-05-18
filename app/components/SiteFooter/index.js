@@ -25,7 +25,9 @@ function SiteFooter() {
               <a href="https://www.linkedin.com/in/kane-clover-62b43b1b/"><img src={linkedInIcon} alt="LinkedIn" className="socialIcon" /></a>
             </div>
             <div className="copyright">
-              <p>All content, code and design by Kane Clover 2017.</p>
+              <p>All content, code and design by Kane Clover 2017.<br />
+              React front end, backed by Wordpress.
+              </p>
               <p><small><a href="https://github.com/vonkanehoffen/wp-react">Source Code</a> licensed under <a href="https://choosealicense.com/licenses/gpl-3.0/">GNU GPLv3</a>.<br />
                 Content licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></small></p>
             </div>
