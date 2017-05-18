@@ -11,7 +11,9 @@ import './style.scss'
 function Error({ message }) {
   return (
     <div className="Error">
-      <b>Error:</b> {message}
+      <div className="modal">
+        <i className="material-icons">warning</i><b>Error:</b> {message}
+      </div>
     </div>
   );
 }

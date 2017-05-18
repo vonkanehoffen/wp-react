@@ -1,5 +1,12 @@
+@import "variables";
 .Error {
-  background: #d00;
   color: #fff;
-  padding: 15px;
+  display: inline-block;
+  margin-left: $gutter/2;
+  background: rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  .material-icons {
+    margin-right: 10px;
+  }
 }
