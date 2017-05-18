@@ -6,6 +6,13 @@ import { getAsyncInjectors } from 'utils/asyncInjectors';
 import postsData from 'store/posts/sagas'
 import tagsData from 'store/tags/sagas'
 
+import HomePage from 'containers/HomePage'
+import SinglePost from 'containers/SinglePost'
+import PostsByTag from 'containers/PostsByTag'
+import Search from 'containers/Search'
+import Contact from 'containers/Contact'
+import NotFoundPage from 'containers/NotFoundPage'
+
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
 };
@@ -23,59 +30,27 @@ export default function createRoutes(store) {
     {
       path: '/',
       name: 'home',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          import('containers/HomePage'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
+      component: HomePage,
     }, {
       path: '/blog/:slug',
       name: 'singlePost',
-      getComponent(location, cb) {
-        import('containers/SinglePost')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
+      component: SinglePost,
     }, {
       path: '/tag/:slug',
       name: 'postsByTag',
-      getComponent(location, cb) {
-        import('containers/PostsByTag')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
+      component: PostsByTag,
     }, {
       path: '/search',
       name: 'search',
-      getComponent(location, cb) {
-        import('containers/Search')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
+      component: Search,
     }, {
       path: '/contact',
       name: 'contact',
-      getComponent(location, cb) {
-        import('containers/Contact')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
+      component: Contact,
     }, {
       path: '*',
       name: 'notfound',
-      getComponent(nextState, cb) {
-        import('containers/NotFoundPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
+      component: NotFoundPage,
     },
   ];
 }
