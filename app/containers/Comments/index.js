@@ -16,14 +16,17 @@ class Comments extends React.Component { // eslint-disable-line react/prefer-sta
     const childComments = comments.filter(c => c.parent === rootComment.id)
     return (
       <div key={rootComment.id} className={'comment' + (rootComment.parent === 0 ? ' rootComment' : '')}>
-        {rootComment.status && <div>Status: {rootComment.status}</div>}
         <div className="commentMeta">
           <img src={rootComment.author_avatar_urls['48']} alt="" />
           <div className="author">{rootComment.author_name} </div>
           <div className="date">{formattedDate(rootComment.date)}</div>
         </div>
         <div className="content" dangerouslySetInnerHTML={{__html: rootComment.content.rendered}} />
-        <CommentForm postId={this.props.post.id} parentId={rootComment.id} />
+        {rootComment.status === 'hold' ?
+          <div className="status">Awaiting approval</div>
+          :
+          <CommentForm postId={this.props.post.id} parentId={rootComment.id}/>
+        }
         {childComments.map(c => this.printComments(c, comments))}
       </div>
     )

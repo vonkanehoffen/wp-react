@@ -15,6 +15,15 @@
   .content {
 
   }
+  .status {
+    display: inline-block;
+    font-family: $font-sans;
+    font-size:ms(-1);
+    border: 1px solid $grey;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px 0;
+  }
   .commentMeta {
     margin-bottom: $gutter;
     img {
