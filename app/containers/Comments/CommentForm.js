@@ -48,7 +48,7 @@ class CommentForm extends React.Component {
   }
 
   render () {
-    const { postId, parentId } = this.props
+    const { postId, parentId, commentSaving } = this.props
     return (
       <div className="CommentForm">
         {this.state.formOpen ?
@@ -66,8 +66,8 @@ class CommentForm extends React.Component {
                 <TextField id="content" value={this.state.content} onChange={this.handleChange} placeholder="Comment" multiLine={true}/>
             </div>
             <div className="flex-row">
-              <Button onClick={this.handleSubmit} label="Post" primary={true}/>
-              <Button onClick={this.closeForm} label="Cancel" />
+              <Button onClick={this.handleSubmit} label="Post" primary={true} disabled={commentSaving}/>
+              <Button onClick={this.closeForm} label="Cancel" disabled={commentSaving} />
             </div>
           </form>
           :
@@ -83,10 +83,16 @@ CommentForm.PropTypes = {
   parentId: React.PropTypes.number.isRequired,
 }
 
+function mapStateToProps(state, ownProps) {
+  return {
+    commentSaving: state.posts.commentSaving,
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
   };
 }
 
-export default connect(null, mapDispatchToProps)(CommentForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);

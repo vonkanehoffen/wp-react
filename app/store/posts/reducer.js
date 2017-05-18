@@ -28,7 +28,6 @@ const initialState = {
   loading: false,
   error: false,
   commentSaving: false,
-  commentError: false,
   posts: [],
   fetchArgs: {
     page: 1,
@@ -70,7 +69,8 @@ function postsReducer(state = initialState, action) {
     case SAVE_COMMENT:
       return u({
         commentSaving: true,
-        commentError: false,
+        loading: true,
+        error: false,
       }, state)
     case SAVE_COMMENT_SUCCESS:
       // Get index of relevant post from returned comment and append
@@ -79,12 +79,15 @@ function postsReducer(state = initialState, action) {
       )
       return u({
         commentSaving: false,
+        loading: false,
+        error: false,
         posts: { [postIndex]: { _embedded: { replies: { 0: (replies) =>
           replies ? [].concat(replies, [action.comment]) : [action.comment]
       }}}}}, state)
     case SAVE_COMMENT_ERROR:
       return u({
         error: action.error,
+        loading: false,
         commentSaving: false,
       }, state)
     default:
