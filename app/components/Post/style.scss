@@ -42,7 +42,7 @@
       }
     }
     .content {
-      flex: 1;
+      min-width: 0; // Fixes <pre> (white-space: pre) problem with flexbox
     }
       .material-icons.more {
         font-size: 40px;
@@ -64,9 +64,10 @@
     .body {
       display: flex;
     }
-    .meta {
-      width: 200px;
-      margin-right: 30px;
-    }
+      .meta {
+        width: auto;
+        min-width: 10em;
+        margin-right: 30px;
+      }
   }
 }

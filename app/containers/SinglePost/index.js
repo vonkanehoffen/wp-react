@@ -23,6 +23,8 @@ export class SinglePost extends React.Component { // eslint-disable-line react/p
     }
   }
 
+  // TODO: Something wrong with logic here? http://localhost:3000/blog/setting-permissions-gitlab-ci-runner doesn't alwasys display
+
   render() {
     const { post, onReply } = this.props;
     const title = post ? post.title.rendered : '';

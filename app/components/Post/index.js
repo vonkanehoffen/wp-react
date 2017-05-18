@@ -5,6 +5,7 @@
 */
 
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 import DateMeta from 'components/DateMeta'
 import Tags from 'components/Tags'
@@ -12,6 +13,8 @@ import CommentCount from 'components/CommentCount'
 import Comments from 'containers/Comments'
 import './style.scss'
 import lineMask from './line-diagonal-mask.png'
+import Highlight from 'react-highlight'
+import './codeHighlights.scss'
 
 // TODO: Use https://highlightjs.org/ for code highlighting. Prebuilt.
 
@@ -65,7 +68,9 @@ class Post extends React.Component { // eslint-disable-line react/prefer-statele
             </div>
             <div className="content">
               {expanded ?
-                <div dangerouslySetInnerHTML={{__html: content.rendered}} className="postContent"></div>
+                <Highlight innerHTML={true}>
+                  {content.rendered}
+                </Highlight>
               :
                 <div>
                   <div dangerouslySetInnerHTML={{__html: excerpt.rendered}}></div>
