@@ -69,6 +69,7 @@ const render = (messages) => {
           render={
             // Scroll to top when going to a new page, imitating default browser
             // behaviour
+            // TODO: useScroll or something is fucking up position on homepage
             applyRouterMiddleware(useScroll())
           }
         />

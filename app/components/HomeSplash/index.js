@@ -4,17 +4,19 @@
 *
 */
 
-import React from 'react';
+import React from 'react'
+import config from 'config'
 import './style.scss'
 
+// TODO: BG overlay can stretch over content sometimes (on live... weird loading thing?)
 
 function HomeSplash() {
   return (
     <section id="HomeSplash">
       <div className="videoBg">
-        <video autoPlay loop poster="http://kanec.co.uk/wp-content/themes/kanec/assets/images/splash.jpg" id="splash-video-bg">
-          <source src="http://kanec.co.uk/wp-content/themes/kanec/assets/images/splash.webm" type="video/webm" />
-          <source src="http://kanec.co.uk/wp-content/themes/kanec/assets/images/splash.mp4" type="video/mp4" />
+        <video autoPlay loop poster={config.staticAssetRoot+'/splash.jpg'} id="splash-video-bg">
+          <source src={config.staticAssetRoot+'/splash.web'} type="video/webm" />
+          <source src={config.staticAssetRoot+'/splash.mp4'} type="video/mp4" />
         </video>
       </div>
       <div className="inner">

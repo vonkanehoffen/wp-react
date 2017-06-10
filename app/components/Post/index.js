@@ -16,8 +16,6 @@ import lineMask from './line-diagonal-mask.png'
 import Highlight from 'react-highlight'
 import './codeHighlights.scss'
 
-// TODO: Use https://highlightjs.org/ for code highlighting. Prebuilt.
-
 class Post extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props)
